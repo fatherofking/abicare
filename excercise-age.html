@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete exercise guide for all ages - children, teens, adults, and seniors. Find age-appropriate workouts, fitness tips, and health benefits for every life stage.">
+    <meta name="keywords" content="exercise for all ages, age-appropriate workouts, fitness for seniors, children's exercise, teen fitness, adult workouts, senior exercise">
+    <title>Exercise for Every Age | Complete Fitness Guide for All Life Stages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-light: #64B5F6;
+            --primary-dark: #1976D2;
+            --secondary: #FF9800;
+            --accent: #4CAF50;
+            --light: #E3F2FD;
+            --dark: #0D47A1;
+            --text: #212121;
+            --text-light: #757575;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exercise-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .age-navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .age-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .age-btn:hover, .age-btn.active {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .age-section {
+            display: none;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .age-section.active {
+            display: block;
+        }
+        
+        .age-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .age-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .exercise-types {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .types-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .type-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .type-card:hover {
+            background-color: var(--primary-light);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .type-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .age-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="exercise-animation" id="exerciseAnimation"></div>
+        <div class="header-content">
+            <h1>Exercise for Every Age</h1>
+            <p class="subtitle">Tailored Fitness Strategies for All Life Stages - From Childhood to Golden Years</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Fitness That Grows With You</h2>
+            <p>Physical activity needs change throughout our lives, but one thing remains constant: regular exercise is essential for health and wellbeing at every age. This comprehensive guide provides age-appropriate exercise recommendations, benefits, and practical tips for children, teens, adults, and seniors.</p>
+        </section>
+        
+        <section class="age-navigation" id="ageNav">
+            <button class="age-btn active" data-age="children">Children (5-12)</button>
+            <button class="age-btn" data-age="teens">Teens (13-17)</button>
+            <button class="age-btn" data-age="adults">Adults (18-64)</button>
+            <button class="age-btn" data-age="seniors">Seniors (65+)</button>
+        </section>
+        
+        <section class="age-section active" id="children">
+            <div class="age-header">
+                <h2>Exercise for Children (Ages 5-12)</h2>
+                <p>Building active habits for lifelong health</p>
+            </div>
+            <div class="age-content">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h3 class="benefit-title">Development Benefits</h3>
+                    <p>Regular activity supports healthy growth, strengthens bones and muscles, improves coordination, and helps maintain a healthy weight.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3 class="benefit-title">Cognitive Benefits</h3>
+                    <p>Physical activity enhances concentration, memory, and classroom behavior. Active children often perform better academically.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">😊</div>
+                    <h3 class="benefit-title">Emotional Benefits</h3>
+                    <p>Exercise reduces stress, improves mood, boosts self-esteem, and helps children develop social skills through team activities.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="age-section" id="teens">
+            <div class="age-header">
+                <h2>Exercise for Teens (Ages 13-17)</h2>
+                <p>Building strength, confidence, and healthy habits</p>
+            </div>
+            <div class="age-content">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏀</div>
+                    <h3 class="benefit-title">Physical Development</h3>
+                    <p>Supports puberty changes, builds strong bones for life, improves athletic performance, and establishes healthy body composition.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">😌</div>
+                    <h3 class="benefit-title">Mental Health</h3>
+                    <p>Reduces anxiety and depression symptoms, improves sleep quality, boosts self-confidence, and provides stress relief.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3 class="benefit-title">Social Benefits</h3>
+                    <p>Team sports and group activities foster friendships, teach cooperation, and develop leadership skills.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="age-section" id="adults">
+            <div class="age-header">
+                <h2>Exercise for Adults (Ages 18-64)</h2>
+                <p>Maintaining health amidst busy lifestyles</p>
+            </div>
+            <div class="age-content">
+                <div class="benefit-card">
+                    <div class="benefit-icon">❤️</div>
+                    <h3 class="benefit-title">Disease Prevention</h3>
+                    <p>Reduces risk of heart disease, stroke, type 2 diabetes, and certain cancers. Helps control blood pressure and cholesterol.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚖️</div>
+                    <h3 class="benefit-title">Weight Management</h3>
+                    <p>Helps maintain healthy weight, boosts metabolism, preserves muscle mass, and increases energy expenditure.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘</div>
+                    <h3 class="benefit-title">Mental Clarity</h3>
+                    <p>Reduces stress, improves sleep quality, boosts creativity, enhances focus, and increases productivity.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="age-section" id="seniors">
+            <div class="age-header">
+                <h2>Exercise for Seniors (Ages 65+)</h2>
+                <p>Staying active for independence and quality of life</p>
+            </div>
+            <div class="age-content">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚶‍♂️</div>
+                    <h3 class="benefit-title">Mobility & Independence</h3>
+                    <p>Improves balance, reduces fall risk, maintains joint flexibility, and preserves ability to perform daily activities.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🫀</div>
+                    <h3 class="benefit-title">Chronic Condition Management</h3>
+                    <p>Helps manage arthritis, osteoporosis, heart disease, and diabetes. Reduces pain and improves overall function.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3 class="benefit-title">Cognitive Health</h3>
+                    <p>Slows cognitive decline, improves memory, reduces dementia risk, and enhances overall brain function.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="exercise-types">
+            <h2 class="types-title">Essential Exercise Types for All Ages</h2>
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">🏃‍♂️</div>
+                    <h3>Aerobic Exercise</h3>
+                    <p>Improves cardiovascular health, endurance, and overall fitness</p>
+                </div>
+                <div class="type-card">
+                    <div class="type-icon">💪</div>
+                    <h3>Strength Training</h3>
+                    <p>Builds muscle, increases metabolism, and supports bone health</p>
+                </div>
+                <div class="type-card">
+                    <div class="type-icon">🧘</div>
+                    <h3>Flexibility</h3>
+                    <p>Improves range of motion, reduces injury risk, and relieves tension</p>
+                </div>
+                <div class="type-card">
+                    <div class="type-icon">⚖️</div>
+                    <h3>Balance Exercises</h3>
+                    <p>Prevents falls, improves stability, and enhances coordination</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Exercise</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How much exercise do I really need?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Adults need at least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity aerobic activity weekly, plus muscle-strengthening activities twice weekly. Children need 60 minutes daily, while seniors should focus on balance activities along with aerobic and strength training.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is it safe to exercise with health conditions?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most people with chronic conditions can and should exercise, but it's important to consult your healthcare provider first. They can help tailor an exercise program to your specific needs and limitations. Many conditions actually improve with appropriate physical activity.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the best time of day to exercise?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The best time is whenever you'll consistently do it! Morning workouts can boost metabolism and ensure you exercise before daily demands interfere. Afternoon/evening workouts may benefit from higher body temperature and muscle flexibility. Consistency matters more than timing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I stay motivated to exercise regularly?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Find activities you enjoy, set realistic goals, track your progress, exercise with a friend, vary your routine, reward yourself for milestones, and focus on how good you feel afterward. Remember that even short bouts of activity provide benefits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Fitness Journey Today</h2>
+            <p>No matter your age or current fitness level, it's never too late to start exercising. Download our complete age-appropriate workout guides with detailed exercise plans, safety tips, and progress trackers.</p>
+            <a href="resources.html" class="cta-button">Back to resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Exercise for Every Age | This information is for educational purposes only. Consult a healthcare professional before starting any new exercise program.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating exercise icons animation in header
+        function createExerciseAnimation() {
+            const container = document.getElementById('exerciseAnimation');
+            const icons = ['🏃', '🚴', '🏊', '🧘', '💪', '🤸', '🚶', '🏀', '⚽', '🎾'];
+            const iconsCount = 15;
+            
+            for (let i = 0; i < iconsCount; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                
+                // Random position
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                icon.style.animationDelay = `${Math.random() * 5}s`;
+                icon.style.animationDuration = `${4 + Math.random() * 4}s`;
+                
+                container.appendChild(icon);
+            }
+        }
+
+        // Age navigation functionality
+        function setupAgeNavigation() {
+            const ageButtons = document.querySelectorAll('.age-btn');
+            const ageSections = document.querySelectorAll('.age-section');
+            
+            ageButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and sections
+                    ageButtons.forEach(btn => btn.classList.remove('active'));
+                    ageSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding section
+                    const age = button.getAttribute('data-age');
+                    document.getElementById(age).classList.add('active');
+                });
+            });
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createExerciseAnimation();
+            setupAgeNavigation();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

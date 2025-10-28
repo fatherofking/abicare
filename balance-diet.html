@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete family balanced diet guide with nutrition tips, meal planning strategies, and healthy recipes for all ages. Learn how to create healthy eating habits for your entire family.">
+    <meta name="keywords" content="balanced diet for family, family nutrition, healthy eating for kids, meal planning, family meals, healthy recipes">
+    <title>Family Balance Diet Guide | Complete Nutrition for All Ages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-light: #81C784;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --accent: #FF5722;
+            --light: #F1F8E9;
+            --dark: #1B5E20;
+            --text: #212121;
+            --text-light: #757575;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .food-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-food {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .pyramid-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pyramid-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .food-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pyramid-level {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.2rem 0;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            transition: var(--transition);
+            transform: translateX(-100px);
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+        }
+        
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .pyramid-level:hover {
+            transform: scale(1.02);
+        }
+        
+        .level-1 { background-color: var(--primary-dark); animation-delay: 0.1s; }
+        .level-2 { background-color: var(--primary); animation-delay: 0.2s; }
+        .level-3 { background-color: var(--primary-light); animation-delay: 0.3s; }
+        .level-4 { background-color: var(--secondary); animation-delay: 0.4s; }
+        .level-5 { background-color: var(--accent); animation-delay: 0.5s; }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tip-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tip-icon {
+            background-color: var(--primary);
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .tip-content {
+            padding: 1.5rem;
+        }
+        
+        .tip-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .meal-planning {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .planning-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .planning-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1.5rem;
+        }
+        
+        .planning-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .planning-step:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .planning-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="food-animation" id="foodAnimation"></div>
+        <div class="header-content">
+            <h1>Family Balance Diet Guide</h1>
+            <p class="subtitle">Nutrition Strategies for Healthy Eating Habits That Last a Lifetime</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Building Healthy Eating Habits for Your Entire Family</h2>
+            <p>Creating balanced meals that satisfy both nutritional needs and taste preferences can be challenging for families. This comprehensive guide provides evidence-based strategies, meal planning tips, and practical advice to help your family develop healthy eating habits that support growth, energy, and long-term wellness.</p>
+        </section>
+        
+        <section class="pyramid-section">
+            <h2 class="pyramid-title">Modern Food Pyramid for Families</h2>
+            <div class="food-pyramid">
+                <div class="pyramid-level level-1">
+                    <h3>Fruits & Vegetables</h3>
+                    <p>5-9 servings daily - Rich in vitamins, minerals and fiber</p>
+                </div>
+                <div class="pyramid-level level-2">
+                    <h3>Whole Grains</h3>
+                    <p>6-11 servings daily - Provide sustained energy and fiber</p>
+                </div>
+                <div class="pyramid-level level-3">
+                    <h3>Protein Foods</h3>
+                    <p>2-3 servings daily - Essential for growth and repair</p>
+                </div>
+                <div class="pyramid-level level-4">
+                    <h3>Dairy & Alternatives</h3>
+                    <p>2-3 servings daily - Important for bone health</p>
+                </div>
+                <div class="pyramid-level level-5">
+                    <h3>Fats & Sweets</h3>
+                    <p>Use sparingly - Enjoy in moderation</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tips-grid" id="tipsContainer">
+            <!-- Tips will be inserted by JavaScript -->
+        </section>
+        
+        <section class="meal-planning">
+            <h2 class="planning-title">7-Day Family Meal Planning Strategy</h2>
+            <div class="planning-steps">
+                <div class="planning-step">
+                    <div class="step-number">1</div>
+                    <h3>Inventory Check</h3>
+                    <p>See what you already have before shopping</p>
+                </div>
+                <div class="planning-step">
+                    <div class="step-number">2</div>
+                    <h3>Theme Nights</h3>
+                    <p>Taco Tuesday, Pasta Wednesday, etc.</p>
+                </div>
+                <div class="planning-step">
+                    <div class="step-number">3</div>
+                    <h3>Batch Cooking</h3>
+                    <p>Prepare staples in larger quantities</p>
+                </div>
+                <div class="planning-step">
+                    <div class="step-number">4</div>
+                    <h3>Leftover Plan</h3>
+                    <p>Designate days for eating leftovers</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Family Nutrition</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I get my picky eater to try new foods?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Introduce new foods alongside familiar favorites, involve children in meal preparation, offer choices ("would you like carrots or broccoli?"), and be patient - it can take 10-15 exposures before a child accepts a new food. Avoid pressuring or bribing, which can create negative associations.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are healthy snack options for busy families?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Keep pre-cut vegetables with hummus, fruit with yogurt dip, whole-grain crackers with cheese, trail mix, or hard-boiled eggs readily available. Preparing snack boxes in advance can help everyone make healthier choices when hunger strikes between meals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How much protein do children need?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Protein needs vary by age: toddlers (1-3 years) need about 13g daily, children (4-8 years) need 19g, and preteens (9-13 years) need about 34g. Good sources include lean meats, eggs, dairy, beans, lentils, and tofu. Most children easily meet protein needs with a varied diet.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are vegetarian diets safe for growing children?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, well-planned vegetarian diets can support healthy growth and development. Focus on protein sources like beans, lentils, tofu, eggs, and dairy; include iron-rich foods with vitamin C to enhance absorption; and ensure adequate B12 through fortified foods or supplements. Consult a pediatric dietitian for personalized guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Family's Health Journey Today</h2>
+            <p>Small, consistent changes can transform your family's eating habits. Download our complete meal planning kit with recipes, shopping lists, and nutrition guides to make healthy eating easier.</p>
+            <a href="resources.html" class="cta-button">Back to Resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Family Nutrition Guide Abicare | This information is for educational purposes only. Consult a healthcare professional for medical advice.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // Nutrition tips data
+        const nutritionTips = [
+            {
+                title: "Involve Kids in Meal Prep",
+                icon: "👨‍🍳",
+                description: "Children who help prepare meals are more likely to try new foods. Assign age-appropriate tasks like washing vegetables, stirring, or setting the table."
+            },
+            {
+                title: "Eat Together Regularly",
+                icon: "🍽️",
+                description: "Family meals promote healthier eating habits and stronger family bonds. Aim for at least 4-5 shared meals per week without distractions."
+            },
+            {
+                title: "Make Half Your Plate Fruits & Veggies",
+                icon: "🥗",
+                description: "Fill half your plate with colorful fruits and vegetables at each meal to ensure adequate vitamin, mineral and fiber intake."
+            },
+            {
+                title: "Choose Whole Grains",
+                icon: "🍞",
+                description: "Swap refined grains for whole grains like brown rice, whole wheat bread, and oatmeal for more fiber and nutrients."
+            },
+            {
+                title: "Limit Added Sugars",
+                icon: "🚫",
+                description: "Check labels and limit sugary drinks, snacks, and desserts. The American Heart Association recommends less than 25g of added sugar daily for children."
+            },
+            {
+                title: "Stay Hydrated with Water",
+                icon: "💧",
+                description: "Make water the primary beverage for your family. Add slices of fruit or herbs for natural flavor without added sugar."
+            },
+            {
+                title: "Practice Mindful Eating",
+                icon: "🧘",
+                description: "Encourage listening to hunger cues, eating slowly, and recognizing fullness. Avoid using food as reward or punishment."
+            },
+            {
+                title: "Plan Healthy Snacks",
+                icon: "🍎",
+                description: "Keep nutritious snacks readily available. Pre-portion snacks to avoid mindless eating and help with portion control."
+            }
+        ];
+
+        // Generate nutrition tips
+        function generateTips() {
+            const container = document.getElementById('tipsContainer');
+            
+            nutritionTips.forEach((tip, index) => {
+                const card = document.createElement('div');
+                card.className = 'tip-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="tip-icon">${tip.icon}</div>
+                    <div class="tip-content">
+                        <h3 class="tip-title">${tip.title}</h3>
+                        <p>${tip.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create floating food animation in header
+        function createFoodAnimation() {
+            const container = document.getElementById('foodAnimation');
+            const foods = ['🍎', '🥦', '🥕', '🍞', '🥚', '🥛', '🍌', '🍇', '🍓', '🥬'];
+            const foodsCount = 15;
+            
+            for (let i = 0; i < foodsCount; i++) {
+                const food = document.createElement('div');
+                food.className = 'floating-food';
+                food.textContent = foods[Math.floor(Math.random() * foods.length)];
+                
+                // Random position
+                food.style.left = `${Math.random() * 100}%`;
+                food.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                food.style.animationDelay = `${Math.random() * 5}s`;
+                food.style.animationDuration = `${4 + Math.random() * 4}s`;
+                
+                container.appendChild(food);
+            }
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTips();
+            createFoodAnimation();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

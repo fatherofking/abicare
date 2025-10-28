@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to women's health at every life stage. Learn about puberty, reproductive health, pregnancy, menopause, and healthy aging for women.">
+    <meta name="keywords" content="women's health, female health, reproductive health, menopause, pregnancy, menstrual health, women wellness">
+    <title>Women's Health at Every Stage/Abicare | Complete Guide to Female Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #E75480;
+            --primary-light: #F8BBD9;
+            --primary-dark: #C2185B;
+            --secondary: #BA68C8;
+            --accent: #64B5F6;
+            --success: #81C784;
+            --light: #FCE4EC;
+            --dark: #880E4F;
+            --text: #4A4A4A;
+            --text-light: #757575;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .health-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+        
+        .pulse-circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.2;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .life-stages {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stages-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .stage-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stage-tab {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .stage-tab:hover, .stage-tab.active {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .stage-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .stage-content.active {
+            display: block;
+        }
+        
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .health-tip {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .health-tip:hover {
+            transform: translateY(-5px);
+            background-color: #f8e1eb;
+        }
+        
+        .tip-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .health-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .topic-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .topic-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .topic-content {
+            padding: 1.5rem;
+        }
+        
+        .topic-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .screening-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .screening-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .screening-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .screening-item {
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .screening-item:hover {
+            transform: translateX(5px);
+            background-color: #f8e1eb;
+        }
+        
+        .screening-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .interactive-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .interactive-title {
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .health-checker {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .checker-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .checker-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            grid-column: span 2;
+        }
+        
+        .checker-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--success);
+            color: white;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-light);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .emergency-notice {
+            background-color: #FFEAA7;
+            border-left: 4px solid #FDCB6E;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .health-topics {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .checker-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .checker-button {
+                grid-column: span 1;
+            }
+            
+            .stage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="health-animation" id="healthAnimation"></div>
+        <div class="header-content">
+            <h1>Women's Health at Every Stage</h1>
+            <p class="subtitle">Complete Guide to Wellness from Adolescence to Golden Years</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Nurturing Your Health Through Every Phase of Life</h2>
+            <p>A woman's body goes through remarkable changes throughout her lifetime. Understanding these transitions and knowing how to care for your health at each stage is essential for lifelong wellbeing. This comprehensive guide covers everything from puberty to menopause and beyond.</p>
+        </section>
+        
+        <div class="emergency-notice">
+            <p><strong>Important:</strong> This information is for educational purposes. Always consult with healthcare providers for personalized medical advice, especially for concerning symptoms or health changes.</p>
+        </div>
+        
+        <section class="stats-section">
+            <div class="stat-card" style="animation-delay: 0.1s">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-number">1 in 3</div>
+                <p>Women die from heart disease each year</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s">
+                <div class="stat-icon">🦴</div>
+                <div class="stat-number">80%</div>
+                <p>Of osteoporosis cases affect women</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s">
+                <div class="stat-icon">🧠</div>
+                <div class="stat-number">2x</div>
+                <p>Higher rate of depression in women vs men</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.4s">
+                <div class="stat-icon">🎗️</div>
+                <div class="stat-number">1 in 8</div>
+                <p>Women will develop breast cancer</p>
+            </div>
+        </section>
+        
+        <section class="life-stages">
+            <h2 class="stages-title">Health Priorities at Each Life Stage</h2>
+            <div class="stage-tabs">
+                <div class="stage-tab active" data-stage="adolescence">Adolescence (10-19)</div>
+                <div class="stage-tab" data-stage="twenties">20s & 30s</div>
+                <div class="stage-tab" data-stage="forties">40s</div>
+                <div class="stage-tab" data-stage="menopause">Menopause & Beyond</div>
+            </div>
+            
+            <div class="stage-content active" id="adolescence">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Adolescent Health (Ages 10-19)</h3>
+                <div class="stage-grid">
+                    <div class="health-tip">
+                        <div class="tip-title">Menstrual Health</div>
+                        <p>Establish regular cycles, manage PMS, and understand what's normal vs concerning symptoms.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Nutrition & Bone Health</div>
+                        <p>Build strong bones with calcium and vitamin D. Most bone mass is developed by age 18.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Mental Wellness</div>
+                        <p>Address body image issues, academic stress, and develop healthy coping mechanisms.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Reproductive Education</div>
+                        <p>Understand fertility, contraception options, and protection against STIs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stage-content" id="twenties">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Health in Your 20s & 30s</h3>
+                <div class="stage-grid">
+                    <div class="health-tip">
+                        <div class="tip-title">Reproductive Planning</div>
+                        <p>Regular gynecological care, preconception counseling, and fertility awareness.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Preventive Care</div>
+                        <p>Establish healthy habits: nutrition, exercise, stress management, and regular check-ups.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Career & Life Balance</div>
+                        <p>Manage work stress, maintain social connections, and prioritize self-care.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Pregnancy & Postpartum</div>
+                        <p>Prenatal care, childbirth preparation, and postpartum recovery support.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stage-content" id="forties">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Health in Your 40s</h3>
+                <div class="stage-grid">
+                    <div class="health-tip">
+                        <div class="tip-title">Perimenopause Awareness</div>
+                        <p>Recognize early signs of hormonal changes and manage symptoms effectively.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Metabolic Health</div>
+                        <p>Monitor blood pressure, cholesterol, and blood sugar as metabolism changes.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Cancer Screenings</div>
+                        <p>Regular mammograms, cervical cancer screening, and colon cancer checks.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Bone Density</div>
+                        <p>Focus on weight-bearing exercise and calcium to prevent osteoporosis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stage-content" id="menopause">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Menopause & Beyond</h3>
+                <div class="stage-grid">
+                    <div class="health-tip">
+                        <div class="tip-title">Symptom Management</div>
+                        <p>Address hot flashes, sleep issues, and vaginal changes with various treatment options.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Heart Health</div>
+                        <p>Increased cardiovascular risk after menopause requires focused prevention.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Bone Protection</div>
+                        <p>Regular bone density scans and fall prevention strategies become crucial.</p>
+                    </div>
+                    <div class="health-tip">
+                        <div class="tip-title">Mental & Emotional Wellness</div>
+                        <p>Navigate life transitions, maintain cognitive health, and find new purposes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="health-topics" id="topicsContainer">
+            <!-- Health topics will be inserted by JavaScript -->
+        </section>
+        
+        <section class="screening-section">
+            <h2 class="screening-title">Essential Health Screenings for Women</h2>
+            <div class="screening-grid">
+                <div class="screening-item">
+                    <div class="screening-icon">🩺</div>
+                    <div>
+                        <h3>Annual Well-Woman Exam</h3>
+                        <p>Yearly check-up including pelvic exam, breast exam, and overall health assessment</p>
+                    </div>
+                </div>
+                <div class="screening-item">
+                    <div class="screening-icon">🎗️</div>
+                    <div>
+                        <h3>Mammogram</h3>
+                        <p>Starting at age 40 (or earlier based on risk factors), annually or biennially</p>
+                    </div>
+                </div>
+                <div class="screening-item">
+                    <div class="screening-icon">🔬</div>
+                    <div>
+                        <h3>Pap Smear</h3>
+                        <p>Every 3-5 years starting at age 21, depending on age and history</p>
+                    </div>
+                </div>
+                <div class="screening-item">
+                    <div class="screening-icon">❤️</div>
+                    <div>
+                        <h3>Cholesterol Check</h3>
+                        <p>Starting at age 20, every 4-6 years (more often if high risk)</p>
+                    </div>
+                </div>
+                <div class="screening-item">
+                    <div class="screening-icon">🦴</div>
+                    <div>
+                        <h3>Bone Density Test</h3>
+                        <p>Starting at age 65, or earlier if risk factors exist</p>
+                    </div>
+                </div>
+                <div class="screening-item">
+                    <div class="screening-icon">💉</div>
+                    <div>
+                        <h3>Diabetes Screening</h3>
+                        <p>Starting at age 45, or earlier if overweight or other risk factors</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="interactive-section">
+            <h2 class="interactive-title">Women's Health Checklist</h2>
+            <div class="health-checker">
+                <p>Find recommended health priorities based on your age and life stage:</p>
+                <div class="checker-form">
+                    <div class="form-group">
+                        <label for="userAge">Your Age</label>
+                        <select id="userAge">
+                            <option value="15">15-19</option>
+                            <option value="25">20-29</option>
+                            <option value="35">30-39</option>
+                            <option value="45">40-49</option>
+                            <option value="55">50-59</option>
+                            <option value="65">60+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="healthStatus">Current Health Status</label>
+                        <select id="healthStatus">
+                            <option value="good">Generally Healthy</option>
+                            <option value="chronic">Managing Chronic Condition</option>
+                            <option value="pregnant">Pregnant/Planning Pregnancy</option>
+                            <option value="menopause">Perimenopausal/Menopausal</option>
+                        </select>
+                    </div>
+                    <button class="checker-button" id="getRecommendations">Get Health Recommendations</button>
+                </div>
+                <div class="result" id="healthResult">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Women's Health</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the most common health conditions that affect women?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Women are disproportionately affected by certain conditions including autoimmune diseases (lupus, rheumatoid arthritis, thyroid disorders), osteoporosis, depression and anxiety, urinary tract issues, migraines, and Alzheimer's disease. Reproductive health conditions like PCOS, endometriosis, and uterine fibroids also primarily affect women. Heart disease remains the leading cause of death for women.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does menopause affect a woman's health?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Menopause causes significant hormonal changes that affect multiple systems. Common effects include hot flashes, sleep disturbances, vaginal dryness, mood changes, and weight redistribution. Long-term, the loss of estrogen increases risks for osteoporosis and heart disease. However, many symptoms can be effectively managed through lifestyle changes, hormone therapy, and other treatments. The transition typically occurs between ages 45-55 and lasts several years.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the best exercise routine for women at different ages?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Teens & 20s:</strong> Build bone density with weight-bearing activities and establish lifelong habits. <strong>30s & 40s:</strong> Combine cardio, strength training, and flexibility. Focus on stress-reducing activities like yoga. <strong>50s:</strong> Increase balance exercises, maintain muscle mass with strength training, and adjust intensity as needed. <strong>60+:</strong> Prioritize balance, flexibility, and maintaining functional strength. Water exercises and walking are excellent low-impact options.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I balance career, family, and self-care?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Setting boundaries is crucial - learn to say no to non-essential commitments. Schedule self-care like medical appointments and exercise as you would important meetings. Delegate household tasks and don't strive for perfection in every area. Build a support network of family, friends, and other mothers. Consider flexible work arrangements if possible. Remember that taking care of yourself enables you to better care for others. Even small daily self-care practices can make a significant difference.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Take Charge of Your Health Journey</h2>
+            <p>Your health needs change throughout life, but being proactive at every stage leads to better outcomes. Download our complete women's health toolkit with tracking sheets, symptom guides, and conversation starters for your doctor.</p>
+            <a href="resources.html" class="cta-button">Back to resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Women's Health Guide | This information is for educational purposes only. Always consult healthcare providers for medical advice.</p>
+        <div class="footer-links">
+           
+        </div>
+    </footer>
+
+    <script>
+        // Women's health topics data
+        const healthTopics = [
+            {
+                title: "Reproductive Health",
+                icon: "🩺",
+                description: "Understanding menstrual cycles, fertility, contraception options, and managing conditions like PCOS and endometriosis."
+            },
+            {
+                title: "Mental Wellness",
+                icon: "🧠",
+                description: "Addressing higher rates of anxiety and depression in women, stress management, and emotional wellbeing strategies."
+            },
+            {
+                title: "Heart Health",
+                icon: "❤️",
+                description: "Unique heart disease symptoms in women, prevention strategies, and managing cardiovascular risk factors."
+            },
+            {
+                title: "Bone Health",
+                icon: "🦴",
+                description: "Preventing osteoporosis through nutrition, exercise, and understanding bone density changes throughout life."
+            },
+            {
+                title: "Hormonal Health",
+                icon: "⚖️",
+                description: "Navigating puberty, pregnancy, perimenopause, and menopause with balanced hormone management."
+            },
+            {
+                title: "Cancer Prevention",
+                icon: "🎗️",
+                description: "Screening guidelines for breast, cervical, ovarian, and other cancers that disproportionately affect women."
+            },
+            {
+                title: "Nutrition & Metabolism",
+                icon: "🍎",
+                description: "Nutritional needs at different life stages, managing weight, and supporting metabolic health."
+            },
+            {
+                title: "Preventive Care",
+                icon: "💉",
+                description: "Essential health screenings, vaccinations, and regular check-ups tailored to women's health needs."
+            }
+        ];
+
+        // Generate health topics
+        function generateHealthTopics() {
+            const container = document.getElementById('topicsContainer');
+            
+            healthTopics.forEach((topic, index) => {
+                const card = document.createElement('div');
+                card.className = 'topic-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="topic-icon">${topic.icon}</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">${topic.title}</h3>
+                        <p>${topic.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create health animation in header
+        function createHealthAnimation() {
+            const container = document.getElementById('healthAnimation');
+            const icons = ['❤️', '👩', '💊', '🩺', '🌺', '⚕️', '🔬', '💖'];
+            const iconsCount = 15;
+            
+            // Add floating icons
+            for (let i = 0; i < iconsCount; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                
+                // Random position
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                icon.style.animationDelay = `${Math.random() * 8}s`;
+                icon.style.animationDuration = `${6 + Math.random() * 4}s`;
+                
+                container.appendChild(icon);
+            }
+            
+            // Add pulse circles
+            for (let i = 0; i < 10; i++) {
+                const circle = document.createElement('div');
+                circle.className = 'pulse-circle';
+                
+                // Random position
+                circle.style.left = `${Math.random() * 90}%`;
+                circle.style.top = `${Math.random() * 90}%`;
+                
+                // Random animation delay
+                circle.style.animationDelay = `${Math.random() * 3}s`;
+                
+                container.appendChild(circle);
+            }
+        }
+
+        // Stage tab functionality
+        function setupStageTabs() {
+            const stageTabs = document.querySelectorAll('.stage-tab');
+            const stageContents = document.querySelectorAll('.stage-content');
+            
+            stageTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and sections
+                    stageTabs.forEach(t => t.classList.remove('active'));
+                    stageContents.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding section
+                    const stage = tab.getAttribute('data-stage');
+                    document.getElementById(stage).classList.add('active');
+                });
+            });
+        }
+
+        // Health checker functionality
+        function setupHealthChecker() {
+            const checkButton = document.getElementById('getRecommendations');
+            const userAgeSelect = document.getElementById('userAge');
+            const healthStatusSelect = document.getElementById('healthStatus');
+            const resultDiv = document.getElementById('healthResult');
+            
+            // Health recommendations by age and status
+            const healthRecommendations = {
+                "15": {
+                    "good": ["Establish healthy menstrual cycle tracking", "Build bone density with calcium and exercise", "Develop positive body image and mental health habits", "Get HPV vaccine if not already completed"],
+                    "chronic": ["Work with pediatrician on transition to adult care", "Develop self-management skills for chronic condition", "Address any mental health impacts of chronic illness"],
+                    "pregnant": ["Prenatal vitamins with folic acid", "Obstetric care for teen pregnancy", "Nutritional support for growing body and baby"],
+                    "menopause": ["Not typically applicable - consult doctor if experiencing early menopause symptoms"]
+                },
+                "25": {
+                    "good": ["Annual well-woman exam", "Establish baseline health metrics", "Regular breast self-exams", "Mental health and stress management"],
+                    "chronic": ["Specialist care for chronic condition", "Reproductive planning if applicable", "Medication management"],
+                    "pregnant": ["Preconception counseling", "Prenatal care", "Nutrition for pregnancy", "Childbirth education"],
+                    "menopause": ["Evaluation for early menopause symptoms", "Bone density assessment", "Cardiovascular risk assessment"]
+                },
+                "35": {
+                    "good": ["Continue annual exams", "Baseline mammogram if high risk", "Fertility awareness if planning pregnancy", "Strength training for muscle maintenance"],
+                    "chronic": ["Coordinate care between specialists", "Monitor for condition progression", "Reproductive considerations"],
+                    "pregnant": ["Advanced maternal age monitoring", "Genetic screening options", "Postpartum recovery planning"],
+                    "menopause": ["Perimenopause symptom management", "Bone health focus", "Cardiovascular prevention strategies"]
+                },
+                "45": {
+                    "good": ["Regular mammograms", "Monitor perimenopause symptoms", "Cardiovascular risk assessment", "Diabetes screening"],
+                    "chronic": ["Menopause planning with chronic condition", "Medication adjustments as needed", "Complication prevention"],
+                    "pregnant": ["High-risk pregnancy care", "Comprehensive genetic counseling", "Postpartum mental health support"],
+                    "menopause": ["Hormone therapy discussion", "Vaginal health management", "Bone density testing"]
+                },
+                "55": {
+                    "good": ["Continue cancer screenings", "Bone density test", "Cardiovascular health focus", "Cognitive health activities"],
+                    "chronic": ["Age-related complication monitoring", "Medication review for appropriateness", "Quality of life focus"],
+                    "pregnant": ["Rare but requires high-risk specialist care", "Comprehensive health monitoring", "Postpartum adaptation"],
+                    "menopause": ["Long-term menopause management", "Urinary and vaginal health", "Cardiovascular protection"]
+                },
+                "65": {
+                    "good": ["Medicare wellness visits", "Fall prevention strategies", "Cognitive health screening", "Vaccination updates"],
+                    "chronic": ["Geriatric care coordination", "Functional ability maintenance", "Advanced care planning"],
+                    "pregnant": ["Not typically applicable"],
+                    "menopause": ["Continued symptom management", "Osteoporosis prevention", "Heart health priority"]
+                }
+            };
+            
+            checkButton.addEventListener('click', () => {
+                const userAge = userAgeSelect.value;
+                const healthStatus = healthStatusSelect.value;
+                
+                if (healthRecommendations[userAge] && healthRecommendations[userAge][healthStatus]) {
+                    const recommendations = healthRecommendations[userAge][healthStatus];
+                    
+                    resultDiv.innerHTML = `
+                        <p><strong>Health priorities for your stage:</strong></p>
+                        <ul>
+                            ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>Discuss these recommendations with your healthcare provider</em></p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `<p>Please make selections to see personalized health recommendations.</p>`;
+                }
+                
+                resultDiv.style.display = 'block';
+            });
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateHealthTopics();
+            createHealthAnimation();
+            setupStageTabs();
+            setupHealthChecker();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

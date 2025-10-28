@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to childhood immunization schedule. Learn about vaccine timing, importance, safety, and CDC recommendations for protecting children from preventable diseases.">
+    <meta name="keywords" content="childhood immunization, vaccine schedule, baby vaccines, immunization chart, CDC vaccine schedule, vaccine safety, pediatric vaccines">
+    <title>Childhood Immunization Schedule |Abicare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --primary-light: #7BB0F0;
+            --primary-dark: #357ABD;
+            --secondary: #50E3C2;
+            --accent: #FF6B6B;
+            --success: #7ED321;
+            --warning: #F5A623;
+            --light: #F8F9FA;
+            --dark: #2C3E50;
+            --text: #34495E;
+            --text-light: #7F8C8D;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vaccine-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+        
+        .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: bubbleUp 6s infinite ease-in-out;
+        }
+        
+        @keyframes bubbleUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-40px) scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-80px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .schedule-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .age-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .age-tab {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .age-tab:hover, .age-tab.active {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .age-schedule {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .age-schedule.active {
+            display: block;
+        }
+        
+        .vaccine-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .vaccine-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .vaccine-card:hover {
+            transform: translateY(-5px);
+            background-color: #e8f4ff;
+        }
+        
+        .vaccine-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .vaccine-doses {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vaccine-protects {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .benefit-content {
+            padding: 1.5rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .safety-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .safety-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .safety-item {
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .safety-item:hover {
+            transform: translateX(5px);
+            background-color: #e8f4ff;
+        }
+        
+        .safety-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .interactive-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .interactive-title {
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .vaccine-tracker {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .tracker-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .tracker-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            grid-column: span 2;
+        }
+        
+        .tracker-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .emergency-notice {
+            background-color: #FFEAA7;
+            border-left: 4px solid #FDCB6E;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .tracker-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .tracker-button {
+                grid-column: span 1;
+            }
+            
+            .vaccine-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="vaccine-animation" id="vaccineAnimation"></div>
+        <div class="header-content">
+            <h1>Childhood Immunization Schedule</h1>
+            <p class="subtitle">Complete Guide to Protecting Your Child from Vaccine-Preventable Diseases</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Protecting Children Through Timely Vaccination</h2>
+            <p>Childhood immunizations are one of the most effective ways to protect children from serious diseases. Following the recommended schedule ensures your child develops immunity when they're most vulnerable. This guide provides comprehensive information about vaccine timing, importance, and safety based on CDC recommendations.</p>
+        </section>
+        
+        <div class="emergency-notice">
+            <p><strong>Important:</strong> Always consult with your pediatrician about your child's specific vaccination needs. This information is based on general CDC guidelines but individual circumstances may vary.</p>
+        </div>
+        
+        <section class="stats-section">
+            <div class="stat-card" style="animation-delay: 0.1s">
+                <div class="stat-icon">💉</div>
+                <div class="stat-number">14</div>
+                <p>Diseases prevented by childhood vaccines</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s">
+                <div class="stat-icon">🛡️</div>
+                <div class="stat-number">90%</div>
+                <p>Reduction in vaccine-preventable diseases since 1980</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s">
+                <div class="stat-icon">👶</div>
+                <div class="stat-number">2M+</div>
+                <p>Child deaths prevented annually by vaccines</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.4s">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number">99%</div>
+                <p>Polio reduction worldwide through vaccination</p>
+            </div>
+        </section>
+        
+        <section class="schedule-section">
+            <h2 class="schedule-title">CDC Recommended Immunization Schedule</h2>
+            <div class="age-tabs">
+                <div class="age-tab active" data-age="birth">Birth-15 Months</div>
+                <div class="age-tab" data-age="toddler">18 Months-6 Years</div>
+                <div class="age-tab" data-age="school">7-18 Years</div>
+            </div>
+            
+            <div class="age-schedule active" id="birth">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Vaccines from Birth to 15 Months</h3>
+                <div class="vaccine-list">
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Hepatitis B (HepB)</div>
+                        <div class="vaccine-doses">3 doses: Birth, 1-2 months, 6-18 months</div>
+                        <div class="vaccine-protects">Protects against liver infection</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Rotavirus (RV)</div>
+                        <div class="vaccine-doses">2-3 doses: 2 months, 4 months, (6 months)</div>
+                        <div class="vaccine-protects">Prevents severe diarrhea and dehydration</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">DTaP</div>
+                        <div class="vaccine-doses">5 doses: 2, 4, 6, 15-18 months, 4-6 years</div>
+                        <div class="vaccine-protects">Diptheria, Tetanus, Pertussis (whooping cough)</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Hib</div>
+                        <div class="vaccine-doses">3-4 doses: 2, 4, 6, (12-15 months)</div>
+                        <div class="vaccine-protects">Haemophilus influenzae type b (meningitis)</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Pneumococcal (PCV13)</div>
+                        <div class="vaccine-doses">4 doses: 2, 4, 6, 12-15 months</div>
+                        <div class="vaccine-protects">Pneumonia, ear infections, meningitis</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Polio (IPV)</div>
+                        <div class="vaccine-doses">4 doses: 2, 4, 6-18 months, 4-6 years</div>
+                        <div class="vaccine-protects">Polio (poliomyelitis)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="age-schedule" id="toddler">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Vaccines from 18 Months to 6 Years</h3>
+                <div class="vaccine-list">
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">MMR</div>
+                        <div class="vaccine-doses">2 doses: 12-15 months, 4-6 years</div>
+                        <div class="vaccine-protects">Measles, Mumps, Rubella</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Varicella</div>
+                        <div class="vaccine-doses">2 doses: 12-15 months, 4-6 years</div>
+                        <div class="vaccine-protects">Chickenpox</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Hepatitis A (HepA)</div>
+                        <div class="vaccine-doses">2 doses: 12-23 months, 6-18 months later</div>
+                        <div class="vaccine-protects">Liver infection</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">DTaP (Booster)</div>
+                        <div class="vaccine-doses">1 dose: 4-6 years</div>
+                        <div class="vaccine-protects">Diptheria, Tetanus, Pertussis booster</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Polio (IPV) (Booster)</div>
+                        <div class="vaccine-doses">1 dose: 4-6 years</div>
+                        <div class="vaccine-protects">Polio booster</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="age-schedule" id="school">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Vaccines from 7 to 18 Years</h3>
+                <div class="vaccine-list">
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Tdap</div>
+                        <div class="vaccine-doses">1 dose: 11-12 years</div>
+                        <div class="vaccine-protects">Tetanus, Diptheria, Pertussis booster</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">HPV</div>
+                        <div class="vaccine-doses">2 doses: 11-12 years (6-12 months apart)</div>
+                        <div class="vaccine-protects">Human Papillomavirus (cancer prevention)</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Meningococcal</div>
+                        <div class="vaccine-doses">2 doses: 11-12 years, 16 years</div>
+                        <div class="vaccine-protects">Meningitis</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">Flu Vaccine</div>
+                        <div class="vaccine-doses">Annual: Every year</div>
+                        <div class="vaccine-protects">Influenza</div>
+                    </div>
+                    <div class="vaccine-card">
+                        <div class="vaccine-name">COVID-19</div>
+                        <div class="vaccine-doses">As recommended by current guidelines</div>
+                        <div class="vaccine-protects">COVID-19 coronavirus</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="benefits-grid" id="benefitsContainer">
+            <!-- Benefits will be inserted by JavaScript -->
+        </section>
+        
+        <section class="safety-section">
+            <h2 class="safety-title">Vaccine Safety & Common Concerns</h2>
+            <div class="safety-grid">
+                <div class="safety-item">
+                    <div class="safety-icon">🔬</div>
+                    <div>
+                        <h3>Extensive Testing</h3>
+                        <p>Vaccines undergo years of testing before approval and continuous monitoring after</p>
+                    </div>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">📊</div>
+                    <div>
+                        <h3>Rare Side Effects</h3>
+                        <p>Serious side effects are extremely rare - much rarer than the diseases they prevent</p>
+                    </div>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">🌡️</div>
+                    <div>
+                        <h3>Common Reactions</h3>
+                        <p>Mild fever, soreness, or fussiness are normal signs the immune system is working</p>
+                    </div>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">❌</div>
+                    <div>
+                        <h3>No Autism Link</h3>
+                        <p>Multiple large studies have found no connection between vaccines and autism</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="interactive-section">
+            <h2 class="interactive-title">Vaccine Schedule Tracker</h2>
+            <div class="vaccine-tracker">
+                <p>Check which vaccines your child needs based on their age:</p>
+                <div class="tracker-form">
+                    <div class="form-group">
+                        <label for="childAge">Child's Age</label>
+                        <select id="childAge">
+                            <option value="0">Newborn</option>
+                            <option value="2">2 months</option>
+                            <option value="4">4 months</option>
+                            <option value="6">6 months</option>
+                            <option value="12">12 months</option>
+                            <option value="15">15 months</option>
+                            <option value="18">18 months</option>
+                            <option value="24">2 years</option>
+                            <option value="48">4 years</option>
+                            <option value="72">6 years</option>
+                            <option value="132">11 years</option>
+                            <option value="156">13 years</option>
+                            <option value="192">16 years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="previousVaccines">Previous Vaccines</label>
+                        <select id="previousVaccines">
+                            <option value="none">None / Starting schedule</option>
+                            <option value="some">Some vaccines received</option>
+                            <option value="most">Most vaccines received</option>
+                            <option value="all">Up to date until now</option>
+                        </select>
+                    </div>
+                    <button class="tracker-button" id="checkVaccines">Check Recommended Vaccines</button>
+                </div>
+                <div class="result" id="vaccineResult">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Childhood Vaccines</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why are so many vaccines given so early in life?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Young children are most vulnerable to serious complications from vaccine-preventable diseases. Their immune systems are still developing, making them more susceptible to infections. The vaccine schedule is designed to protect children when they're at highest risk, starting immunity development before they're likely to be exposed to these diseases in the community.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is it safe to give multiple vaccines at once?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, extensive research shows that giving several vaccines at the same time is safe and effective. A child's immune system is capable of handling many more antigens (the parts of vaccines that create immunity) than they receive through vaccinations. Combination vaccines (like MMR) actually reduce the number of shots and office visits. Spreading out vaccines leaves children vulnerable to diseases for longer periods.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if my child misses a vaccine dose?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If your child misses a shot, you don't need to start over. The "catch-up" schedule allows your pediatrician to get your child back on track without repeating doses. It's important to consult with your healthcare provider as soon as possible to create a plan to complete the vaccination series. Delaying vaccines increases the time your child is vulnerable to preventable diseases.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are there medical reasons to delay or skip vaccines?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, but these are rare. Valid medical exemptions include severe allergic reactions to previous vaccine doses or specific vaccine components, and certain conditions that weaken the immune system (like chemotherapy or certain genetic disorders). Mild illnesses like colds or low-grade fevers are NOT reasons to delay vaccination. Always discuss concerns with your pediatrician.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Keep Your Child Protected</h2>
+            <p>Stay on track with your child's immunization schedule. Download our complete vaccine tracker with reminder alerts, side effect guidance, and questions to ask your pediatrician.</p>
+            <a href="resources.html" class="cta-button">Back to resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Abicare Childhood Immunization Guide | This information is for educational purposes only. Always consult with healthcare providers for medical advice.</p>
+        <div class="footer-links">
+           
+        </div>
+    </footer>
+
+    <script>
+        // Vaccine benefits data
+        const vaccineBenefits = [
+            {
+                title: "Disease Prevention",
+                icon: "🛡️",
+                description: "Vaccines protect against 14 serious childhood diseases including measles, polio, and whooping cough that can cause hospitalization or death."
+            },
+            {
+                title: "Community Protection",
+                icon: "👥",
+                description: "High vaccination rates create 'herd immunity' protecting those who can't be vaccinated, like newborns and immunocompromised individuals."
+            },
+            {
+                title: "Cost-Effective",
+                icon: "💰",
+                description: "Vaccines save families time and money by preventing costly treatments and hospitalizations for vaccine-preventable diseases."
+            },
+            {
+                title: "Eradication Success",
+                icon: "✅",
+                description: "Vaccines have successfully eradicated smallpox and nearly eliminated polio, measles, and rubella in many parts of the world."
+            },
+            {
+                title: "School Readiness",
+                icon: "🎒",
+                description: "Most schools and childcare facilities require vaccinations, ensuring all children in these settings are protected from outbreaks."
+            },
+            {
+                title: "Lifelong Protection",
+                icon: "📅",
+                description: "Many childhood vaccines provide protection that lasts for years, decades, or even a lifetime against serious diseases."
+            },
+            {
+                title: "Safe Travel",
+                icon: "✈️",
+                description: "Vaccinated children can travel more safely and participate in activities without risk of contracting or spreading preventable diseases."
+            },
+            {
+                title: "Future Health",
+                icon: "🔮",
+                description: "Some vaccines (like HPV) protect against cancers that develop later in life, providing long-term health benefits."
+            }
+        ];
+
+        // Generate vaccine benefits
+        function generateVaccineBenefits() {
+            const container = document.getElementById('benefitsContainer');
+            
+            vaccineBenefits.forEach((benefit, index) => {
+                const card = document.createElement('div');
+                card.className = 'benefit-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="benefit-icon">${benefit.icon}</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">${benefit.title}</h3>
+                        <p>${benefit.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create vaccine animation in header
+        function createVaccineAnimation() {
+            const container = document.getElementById('vaccineAnimation');
+            const icons = ['💉', '🩹', '🛡️', '❤️', '👶', '⚕️', '🔬', '💊'];
+            const iconsCount = 12;
+            
+            // Add floating icons
+            for (let i = 0; i < iconsCount; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                
+                // Random position
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                icon.style.animationDelay = `${Math.random() * 8}s`;
+                icon.style.animationDuration = `${6 + Math.random() * 4}s`;
+                
+                container.appendChild(icon);
+            }
+            
+            // Add bubbles
+            for (let i = 0; i < 8; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                // Random position and size
+                const size = 10 + Math.random() * 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 90}%`;
+                
+                // Random animation delay
+                bubble.style.animationDelay = `${Math.random() * 6}s`;
+                
+                container.appendChild(bubble);
+            }
+        }
+
+        // Age tab functionality
+        function setupAgeTabs() {
+            const ageTabs = document.querySelectorAll('.age-tab');
+            const ageSchedules = document.querySelectorAll('.age-schedule');
+            
+            ageTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and sections
+                    ageTabs.forEach(t => t.classList.remove('active'));
+                    ageSchedules.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding section
+                    const age = tab.getAttribute('data-age');
+                    document.getElementById(age).classList.add('active');
+                });
+            });
+        }
+
+        // Vaccine tracker functionality
+        function setupVaccineTracker() {
+            const checkButton = document.getElementById('checkVaccines');
+            const childAgeSelect = document.getElementById('childAge');
+            const previousVaccinesSelect = document.getElementById('previousVaccines');
+            const resultDiv = document.getElementById('vaccineResult');
+            
+            // Vaccine recommendations by age
+            const vaccineRecommendations = {
+                "0": ["Hepatitis B (first dose)"],
+                "2": ["DTaP", "Hib", "Polio (IPV)", "Pneumococcal (PCV13)", "Rotavirus", "Hepatitis B (second dose)"],
+                "4": ["DTaP", "Hib", "Polio (IPV)", "Pneumococcal (PCV13)", "Rotavirus"],
+                "6": ["DTaP", "Hib", "Polio (IPV)", "Pneumococcal (PCV13)", "Rotavirus", "Hepatitis B (third dose)", "Flu (annual)"],
+                "12": ["MMR", "Varicella", "Hepatitis A (first dose)", "Hib (booster)", "Pneumococcal (PCV13 booster)"],
+                "15": ["DTaP (booster)"],
+                "18": ["Hepatitis A (second dose)"],
+                "24": ["Flu (annual)"],
+                "48": ["DTaP (booster)", "Polio (IPV booster)", "MMR (second dose)", "Varicella (second dose)"],
+                "72": ["Flu (annual)"],
+                "132": ["Tdap", "HPV (first dose)", "Meningococcal (first dose)"],
+                "156": ["HPV (second dose)"],
+                "192": ["Meningococcal (booster)"]
+            };
+            
+            checkButton.addEventListener('click', () => {
+                const childAge = childAgeSelect.value;
+                const previousVaccines = previousVaccinesSelect.value;
+                
+                if (vaccineRecommendations[childAge]) {
+                    let recommendations = vaccineRecommendations[childAge];
+                    
+                    // Adjust based on previous vaccine status
+                    if (previousVaccines === "all") {
+                        recommendations = ["Your child is up to date! Continue with annual flu vaccine."];
+                    } else if (previousVaccines === "most") {
+                        recommendations.unshift("Catch up on any missed vaccines from earlier schedules.");
+                    } else if (previousVaccines === "some") {
+                        recommendations.unshift("Important: Your child needs to catch up on previous vaccine schedules. Consult your pediatrician.");
+                    }
+                    
+                    resultDiv.innerHTML = `
+                        <p><strong>Recommended vaccines for a ${childAgeSelect.options[childAgeSelect.selectedIndex].text} old:</strong></p>
+                        <ul>
+                            ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>Always confirm with your healthcare provider</em></p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `<p>Please select a valid age to see vaccine recommendations.</p>`;
+                }
+                
+                resultDiv.style.display = 'block';
+            });
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateVaccineBenefits();
+            createVaccineAnimation();
+            setupAgeTabs();
+            setupVaccineTracker();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

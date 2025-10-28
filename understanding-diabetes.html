@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to understanding and managing diabetes. Learn about types, symptoms, treatment, diet, and lifestyle strategies for diabetes prevention and control.">
+    <meta name="keywords" content="diabetes management, type 1 diabetes, type 2 diabetes, blood sugar control, diabetes diet, insulin, prediabetes, diabetes symptoms">
+    <title>Understanding & Managing Diabetes | Abicare hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-light: #5dade2;
+            --primary-dark: #2980b9;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .diabetes-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+        
+        .pulse-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.3;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .types-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .types-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .types-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .type-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .type-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .type-1 .type-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        
+        .type-2 .type-header {
+            background: linear-gradient(135deg, var(--secondary), #27ae60);
+        }
+        
+        .prediabetes .type-header {
+            background: linear-gradient(135deg, var(--warning), #e67e22);
+        }
+        
+        .type-content {
+            padding: 1.5rem;
+        }
+        
+        .type-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .type-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .type-features li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .management-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        .management-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .management-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .management-content {
+            padding: 1.5rem;
+        }
+        
+        .management-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .interactive-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .interactive-title {
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .blood-sugar-tracker {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .tracker-visual {
+            height: 200px;
+            margin: 2rem 0;
+            position: relative;
+            background: linear-gradient(to top, #e74c3c 0%, #f39c12 50%, #2ecc71 100%);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .sugar-level {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            transition: height 1s ease;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .level-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .tracker-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .tracker-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .tracker-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .food-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .food-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .food-item {
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .food-item.good {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .food-item.avoid {
+            border-left: 4px solid var(--accent);
+        }
+        
+        .food-item:hover {
+            transform: translateX(5px);
+            background-color: #dfe6e9;
+        }
+        
+        .food-icon {
+            font-size: 1.5rem;
+        }
+        
+        .good .food-icon {
+            color: var(--secondary);
+        }
+        
+        .avoid .food-icon {
+            color: var(--accent);
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .emergency-notice {
+            background-color: #FFEAA7;
+            border-left: 4px solid #FDCB6E;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: #27ae60;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .management-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .types-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="diabetes-animation" id="diabetesAnimation"></div>
+        <div class="header-content">
+            <h1>Understanding & Managing Diabetes</h1>
+            <p class="subtitle">Comprehensive Guide to Blood Sugar Control and Healthy Living</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Taking Control of Your Health</h2>
+            <p>Diabetes affects how your body processes blood sugar (glucose), but with proper management, people with diabetes can live full, healthy lives. This comprehensive guide provides evidence-based information about diabetes types, symptoms, treatment options, and lifestyle strategies for effective management.</p>
+        </section>
+        
+        <div class="emergency-notice">
+            <p><strong>Diabetes Emergency:</strong> If you experience extreme thirst, frequent urination, blurred vision, fatigue, or fruity-smelling breath, seek medical attention immediately. These could be signs of dangerously high or low blood sugar.</p>
+        </div>
+        
+        <section class="stats-section">
+            <div class="stat-card" style="animation-delay: 0.1s">
+                <div class="stat-icon">🔢</div>
+                <div class="stat-number">37.3M</div>
+                <p>Americans have diabetes (11.3% of population)</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-number">96M</div>
+                <p>Adults have prediabetes (38% of population)</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s">
+                <div class="stat-icon">💪</div>
+                <div class="stat-number">58%</div>
+                <p>Reduction in diabetes risk with lifestyle changes</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.4s">
+                <div class="stat-icon">💰</div>
+                <div class="stat-number">$327B</div>
+                <p>Annual cost of diabetes in the United States</p>
+            </div>
+        </section>
+        
+        <section class="types-section">
+            <h2 class="types-title">Understanding Diabetes Types</h2>
+            <div class="types-comparison">
+                <div class="type-card type-1">
+                    <div class="type-header">
+                        <h3>Type 1 Diabetes</h3>
+                        <p>Autoimmune Condition</p>
+                    </div>
+                    <div class="type-content">
+                        <p>The body's immune system attacks and destroys insulin-producing cells in the pancreas.</p>
+                        <ul class="type-features">
+                            <li>Usually diagnosed in children and young adults</li>
+                            <li>Requires insulin therapy</li>
+                            <li>Not preventable with current knowledge</li>
+                            <li>Accounts for 5-10% of all diabetes cases</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="type-card type-2">
+                    <div class="type-header">
+                        <h3>Type 2 Diabetes</h3>
+                        <p>Insulin Resistance</p>
+                    </div>
+                    <div class="type-content">
+                        <p>The body doesn't use insulin properly (insulin resistance) and may not produce enough insulin.</p>
+                        <ul class="type-features">
+                            <li>Most common form (90-95% of cases)</li>
+                            <li>Often develops in adults over 45</li>
+                            <li>Largely preventable with lifestyle changes</li>
+                            <li>Managed with diet, exercise, medication</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="type-card prediabetes">
+                    <div class="type-header">
+                        <h3>Prediabetes</h3>
+                        <p>Warning Stage</p>
+                    </div>
+                    <div class="type-content">
+                        <p>Blood sugar levels are higher than normal but not yet high enough for a diabetes diagnosis.</p>
+                        <ul class="type-features">
+                            <li>Reversible with lifestyle changes</li>
+                            <li>No clear symptoms often</li>
+                            <li>Increases risk of developing type 2 diabetes</li>
+                            <li>Affects 1 in 3 American adults</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="management-grid" id="managementContainer">
+            <!-- Management tips will be inserted by JavaScript -->
+        </section>
+        
+        <section class="interactive-section">
+            <h2 class="interactive-title">Blood Sugar Level Simulator</h2>
+            <div class="blood-sugar-tracker">
+                <p>See how different factors affect blood sugar levels:</p>
+                <div class="tracker-visual">
+                    <div class="sugar-level" id="sugarLevel" style="height: 50%;"></div>
+                </div>
+                <div class="level-labels">
+                    <span>Low<br>(Hypoglycemia)</span>
+                    <span>Normal Range</span>
+                    <span>High<br>(Hyperglycemia)</span>
+                </div>
+                <div class="tracker-controls">
+                    <button class="tracker-button" data-change="10">After Meal</button>
+                    <button class="tracker-button" data-change="-15">After Exercise</button>
+                    <button class="tracker-button" data-change="20">High Sugar Food</button>
+                    <button class="tracker-button" data-change="0" id="resetTracker">Reset</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="food-section">
+            <h2 class="food-title">Diabetes-Friendly Nutrition Guide</h2>
+            <div class="food-grid">
+                <div class="food-item good">
+                    <div class="food-icon">✅</div>
+                    <div>
+                        <h3>Choose More Often</h3>
+                        <p>Non-starchy vegetables, whole grains, lean proteins, healthy fats</p>
+                    </div>
+                </div>
+                <div class="food-item avoid">
+                    <div class="food-icon">❌</div>
+                    <div>
+                        <h3>Limit or Avoid</h3>
+                        <p>Sugary drinks, processed carbs, trans fats, high-sodium foods</p>
+                    </div>
+                </div>
+                <div class="food-item good">
+                    <div class="food-icon">🥦</div>
+                    <div>
+                        <h3>Non-Starchy Vegetables</h3>
+                        <p>Broccoli, spinach, peppers, cauliflower, greens</p>
+                    </div>
+                </div>
+                <div class="food-item good">
+                    <div class="food-icon">🐟</div>
+                    <div>
+                        <h3>Lean Proteins</h3>
+                        <p>Fish, chicken, turkey, tofu, legumes, eggs</p>
+                    </div>
+                </div>
+                <div class="food-item avoid">
+                    <div class="food-icon">🥤</div>
+                    <div>
+                        <h3>Sugary Drinks</h3>
+                        <p>Soda, sweet tea, fruit juice, energy drinks</p>
+                    </div>
+                </div>
+                <div class="food-item avoid">
+                    <div class="food-icon">🍩</div>
+                    <div>
+                        <h3>Processed Carbs</h3>
+                        <p>White bread, pastries, cookies, chips, crackers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Diabetes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the difference between type 1 and type 2 diabetes?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Type 1 diabetes is an autoimmune condition where the body attacks insulin-producing cells, requiring insulin therapy. Type 2 diabetes involves insulin resistance where the body doesn't use insulin properly, often managed with lifestyle changes and oral medications. Type 1 usually appears in childhood, while type 2 typically develops in adulthood.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can diabetes be cured or reversed?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Type 1 diabetes cannot be cured or reversed—it requires lifelong management. Type 2 diabetes cannot be cured, but it can often be put into remission through significant lifestyle changes like weight loss, healthy eating, and regular exercise. Prediabetes can frequently be reversed entirely with lifestyle interventions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the warning signs of diabetes?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Common symptoms include increased thirst, frequent urination, extreme hunger, unexplained weight loss, fatigue, blurred vision, slow-healing sores, frequent infections, and tingling in hands or feet. However, many people with type 2 diabetes have mild or no symptoms initially.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often should I check my blood sugar?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This depends on your type of diabetes and treatment plan. People with type 1 diabetes typically check 4-10 times daily. Those with type 2 diabetes may check less frequently, from once daily to several times weekly. Your healthcare provider will recommend a testing schedule based on your specific needs and treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Diabetes Management Journey Today</h2>
+            <p>Effective diabetes management is possible with the right knowledge and tools.</p>
+            <a href="resources.html" class="cta-button">Back to Resources </a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Diabetes Management Guide | This information is for educational purposes only and not a substitute for professional medical advice.</p>
+        <div class="footer-links">
+           
+        </div>
+    </footer>
+
+    <script>
+        // Diabetes management tips data
+        const managementTips = [
+            {
+                title: "Monitor Blood Sugar",
+                icon: "📊",
+                description: "Regular monitoring helps you understand how food, activity, and medication affect your levels. Keep a log to identify patterns."
+            },
+            {
+                title: "Healthy Eating",
+                icon: "🥗",
+                description: "Focus on balanced meals with non-starchy vegetables, lean proteins, and whole grains. Control portion sizes and carbohydrate intake."
+            },
+            {
+                title: "Regular Physical Activity",
+                icon: "🏃‍♂️",
+                description: "Aim for 150 minutes of moderate exercise weekly. Activity helps insulin work better and can lower blood sugar levels."
+            },
+            {
+                title: "Medication Adherence",
+                icon: "💊",
+                description: "Take medications as prescribed. Don't skip doses, and communicate with your doctor about any side effects or concerns."
+            },
+            {
+                title: "Stress Management",
+                icon: "😌",
+                description: "Chronic stress can raise blood sugar levels. Practice relaxation techniques like deep breathing, meditation, or yoga."
+            },
+            {
+                title: "Regular Check-ups",
+                icon: "👨‍⚕️",
+                description: "Schedule regular appointments with your healthcare team. Monitor A1C, blood pressure, cholesterol, and kidney function."
+            },
+            {
+                title: "Foot Care",
+                icon: "🦶",
+                description: "Check feet daily for cuts, blisters, or sores. Diabetes can cause nerve damage and reduce blood flow to feet."
+            },
+            {
+                title: "Stay Hydrated",
+                icon: "💧",
+                description: "Drink plenty of water throughout the day. Avoid sugary beverages that can spike blood sugar levels."
+            }
+        ];
+
+        // Generate management tips
+        function generateManagementTips() {
+            const container = document.getElementById('managementContainer');
+            
+            managementTips.forEach((tip, index) => {
+                const card = document.createElement('div');
+                card.className = 'management-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="management-icon">${tip.icon}</div>
+                    <div class="management-content">
+                        <h3 class="management-title">${tip.title}</h3>
+                        <p>${tip.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create diabetes animation in header
+        function createDiabetesAnimation() {
+            const container = document.getElementById('diabetesAnimation');
+            const icons = ['🩸', '💉', '❤️', '🍎', '🏃', '⚕️', '🔬', '📈'];
+            const iconsCount = 12;
+            
+            for (let i = 0; i < iconsCount; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                
+                // Random position
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                icon.style.animationDelay = `${Math.random() * 8}s`;
+                icon.style.animationDuration = `${6 + Math.random() * 4}s`;
+                
+                container.appendChild(icon);
+            }
+            
+            // Add pulse dots
+            for (let i = 0; i < 5; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'pulse-dot';
+                
+                // Random position
+                dot.style.left = `${Math.random() * 90}%`;
+                dot.style.top = `${Math.random() * 90}%`;
+                
+                // Random animation delay
+                dot.style.animationDelay = `${Math.random() * 2}s`;
+                
+                container.appendChild(dot);
+            }
+        }
+
+        // Blood sugar tracker functionality
+        function setupBloodSugarTracker() {
+            const sugarLevel = document.getElementById('sugarLevel');
+            const buttons = document.querySelectorAll('.tracker-button');
+            const resetButton = document.getElementById('resetTracker');
+            
+            let currentLevel = 50; // Starting at normal range
+            
+            function updateSugarLevel() {
+                sugarLevel.style.height = `${currentLevel}%`;
+                
+                // Change color based on level
+                if (currentLevel < 30) {
+                    sugarLevel.style.backgroundColor = '#3498db'; // Low - blue
+                } else if (currentLevel > 70) {
+                    sugarLevel.style.backgroundColor = '#e74c3c'; // High - red
+                } else {
+                    sugarLevel.style.backgroundColor = '#2ecc71'; // Normal - green
+                }
+            }
+            
+            buttons.forEach(button => {
+                if (button !== resetButton) {
+                    button.addEventListener('click', () => {
+                        const change = parseInt(button.getAttribute('data-change'));
+                        currentLevel += change;
+                        
+                        // Keep within bounds
+                        if (currentLevel < 10) currentLevel = 10;
+                        if (currentLevel > 90) currentLevel = 90;
+                        
+                        updateSugarLevel();
+                    });
+                }
+            });
+            
+            resetButton.addEventListener('click', () => {
+                currentLevel = 50;
+                updateSugarLevel();
+            });
+            
+            // Initialize
+            updateSugarLevel();
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateManagementTips();
+            createDiabetesAnimation();
+            setupBloodSugarTracker();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

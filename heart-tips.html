@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover 10 evidence-based tips for a healthy heart. Learn how to improve cardiovascular health, prevent heart disease, and maintain optimal heart function.">
+    <meta name="keywords" content="healthy heart, heart health tips, cardiovascular health, prevent heart disease, heart healthy diet, exercise for heart">
+    <title>10 Tips for a Healthy Heart | Complete Guide to Cardiovascular Wellness</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #457b9d;
+            --accent: #a8dadc;
+            --light: #f1faee;
+            --dark: #1d3557;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .heart-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tip-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tip-icon {
+            background-color: var(--secondary);
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .tip-content {
+            padding: 1.5rem;
+        }
+        
+        .tip-number {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .tip-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            background-color: #c1121f;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heart-animation" id="heartAnimation"></div>
+        <div class="header-content">
+            <h1>10 Tips for a Healthy Heart</h1>
+            <p class="subtitle">Evidence-based strategies to improve cardiovascular health and prevent heart disease</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Your Guide to Cardiovascular Wellness</h2>
+            <p>Heart disease remains the leading cause of death worldwide, but the good news is that up to 80% of cardiovascular diseases are preventable through lifestyle changes. This comprehensive guide covers the top 10 strategies recommended by cardiologists to keep your heart strong and healthy.</p>
+        </section>
+        
+        <section class="tips-grid" id="tipsContainer">
+            <!-- Tips will be inserted by JavaScript -->
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Heart Health</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the early warning signs of heart problems?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Early warning signs can include chest discomfort, shortness of breath, palpitations, dizziness, fatigue, and swelling in the legs. However, some people experience no symptoms until a major cardiac event occurs, which is why preventive care is crucial.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often should I get my heart checked?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Adults should have their blood pressure checked at least once every two years, and cholesterol levels checked every 4-6 years. Those with risk factors (like high blood pressure, diabetes, or family history) may need more frequent screenings.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can heart disease be reversed?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While advanced heart disease may not be fully reversible, significant lifestyle changes can halt progression and in some cases partially reverse damage. Studies show that comprehensive lifestyle interventions can improve heart function and reduce arterial plaque.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the best exercise for heart health?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A combination of aerobic exercise (like brisk walking, swimming, or cycling) and strength training is ideal. Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous activity per week, plus muscle-strengthening activities twice weekly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Take Control of Your Heart Health Today</h2>
+            <p>Small changes can make a big difference in your cardiovascular health. Start implementing these tips today and consult with your healthcare provider for personalized advice.</p>
+            <a href="resources.html" class="cta-button">Back to Resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Heart Health Guide | This information is for educational purposes only. Consult a healthcare professional for medical advice.</p>
+    </footer>
+
+    <script>
+        // Heart tips data
+        const heartTips = [
+            {
+                number: 1,
+                title: "Eat a Heart-Healthy Diet",
+                icon: "🥗",
+                description: "Focus on fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit saturated fats, trans fats, sodium, and added sugars. The Mediterranean diet is particularly beneficial for heart health."
+            },
+            {
+                number: 2,
+                title: "Stay Physically Active",
+                icon: "🏃‍♂️",
+                description: "Aim for at least 150 minutes of moderate-intensity exercise per week. Regular physical activity helps control weight, reduces blood pressure, and improves cholesterol levels."
+            },
+            {
+                number: 3,
+                title: "Maintain a Healthy Weight",
+                icon: "⚖️",
+                description: "Excess weight strains your heart and increases risk of heart disease. Even losing 5-10% of your body weight can significantly improve cardiovascular health."
+            },
+            {
+                number: 4,
+                title: "Quit Smoking",
+                icon: "🚭",
+                description: "Smoking damages blood vessels, raises blood pressure, and reduces oxygen in your blood. Quitting is one of the most impactful changes for heart health."
+            },
+            {
+                number: 5,
+                title: "Limit Alcohol Consumption",
+                icon: "🍷",
+                description: "If you drink alcohol, do so in moderation. For heart health, limit to one drink per day for women and two for men. Excessive drinking raises blood pressure and contributes to weight gain."
+            },
+            {
+                number: 6,
+                title: "Manage Stress",
+                icon: "🧘‍♀️",
+                description: "Chronic stress can contribute to high blood pressure and other heart disease risk factors. Practice relaxation techniques like meditation, deep breathing, or yoga."
+            },
+            {
+                number: 7,
+                title: "Get Quality Sleep",
+                icon: "😴",
+                description: "Aim for 7-9 hours of quality sleep per night. Poor sleep is linked to higher risk of high blood pressure, obesity, and diabetes - all risk factors for heart disease."
+            },
+            {
+                number: 8,
+                title: "Monitor Blood Pressure",
+                icon: "❤️",
+                description: "Know your numbers and keep blood pressure in a healthy range (typically below 120/80 mm Hg). High blood pressure is a major risk factor for heart attack and stroke."
+            },
+            {
+                number: 9,
+                title: "Control Cholesterol and Triglycerides",
+                icon: "🩸",
+                description: "High levels of bad cholesterol (LDL) can clog arteries, while high triglycerides increase heart disease risk. Get regular screenings and follow your doctor's advice."
+            },
+            {
+                number: 10,
+                title: "Manage Diabetes",
+                icon: "🩺",
+                description: "If you have diabetes, keep blood sugar levels well controlled. Diabetes significantly increases the risk of heart disease, stroke, and other cardiovascular complications."
+            }
+        ];
+
+        // Generate heart tips
+        function generateTips() {
+            const container = document.getElementById('tipsContainer');
+            
+            heartTips.forEach((tip, index) => {
+                const card = document.createElement('div');
+                card.className = 'tip-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="tip-icon">${tip.icon}</div>
+                    <div class="tip-content">
+                        <div class="tip-number">${tip.number}</div>
+                        <h3 class="tip-title">${tip.title}</h3>
+                        <p>${tip.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create pulse animation in header
+        function createPulseAnimation() {
+            const container = document.getElementById('heartAnimation');
+            const pulsesCount = 15;
+            
+            for (let i = 0; i < pulsesCount; i++) {
+                const pulse = document.createElement('div');
+                pulse.className = 'pulse';
+                
+                // Random position
+                pulse.style.left = `${Math.random() * 100}%`;
+                pulse.style.top = `${Math.random() * 100}%`;
+                
+                // Random delay
+                pulse.style.animationDelay = `${Math.random() * 2}s`;
+                
+                container.appendChild(pulse);
+            }
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTips();
+            createPulseAnimation();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

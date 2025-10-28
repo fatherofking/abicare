@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to the importance of quality sleep. Learn about sleep cycles, health benefits, sleep disorders, and proven techniques for better sleep.">
+    <meta name="keywords" content="quality sleep, sleep importance, sleep benefits, sleep cycles, insomnia, sleep disorders, better sleep, sleep hygiene">
+    <title>Importance of Quality Sleep | Abicare </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8B85FF;
+            --primary-dark: #5752D4;
+            --secondary: #36D1DC;
+            --accent: #FF6584;
+            --moon: #FFD166;
+            --light: #F8F9FA;
+            --dark: #2D3748;
+            --text: #4A5568;
+            --text-light: #718096;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sleep-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+        
+        .moon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: var(--moon);
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--moon);
+            animation: moonGlow 4s infinite alternate;
+        }
+        
+        @keyframes moonGlow {
+            0% {
+                box-shadow: 0 0 20px var(--moon);
+            }
+            100% {
+                box-shadow: 0 0 40px var(--moon);
+            }
+        }
+        
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .sleep-cycle-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cycle-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .cycle-visual {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .cycle-stage {
+            text-align: center;
+            flex: 1;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            opacity: 0;
+            animation: stageAppear 0.5s ease forwards;
+        }
+        
+        @keyframes stageAppear {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .cycle-stage:hover {
+            transform: translateY(-5px);
+            background-color: var(--light);
+        }
+        
+        .stage-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stage-1 { animation-delay: 0.1s; }
+        .stage-2 { animation-delay: 0.2s; }
+        .stage-3 { animation-delay: 0.3s; }
+        .stage-4 { animation-delay: 0.4s; }
+        .stage-rem { animation-delay: 0.5s; }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .benefit-content {
+            padding: 1.5rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .sleep-tips {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tips-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tip-item {
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .tip-item:hover {
+            transform: translateX(5px);
+            background-color: #e9ecef;
+        }
+        
+        .tip-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .sleep-calculator {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .calculator-title {
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .calculator-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .calculator-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .calculator-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--moon);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .cycle-visual {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="sleep-animation" id="sleepAnimation"></div>
+        <div class="header-content">
+            <h1>The Importance of Quality Sleep</h1>
+            <p class="subtitle">Unlock the Power of Rest for Better Health, Productivity, and Wellbeing</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Why Sleep Matters More Than You Think</h2>
+            <p>Sleep isn't just downtime between busy days - it's an essential biological process that affects every aspect of your health. From memory consolidation to immune function, quality sleep is the foundation of physical and mental wellbeing. Discover how improving your sleep can transform your life.</p>
+        </section>
+        
+        <section class="stats-section">
+            <div class="stat-card" style="animation-delay: 0.1s">
+                <div class="stat-icon">😴</div>
+                <div class="stat-number">35%</div>
+                <p>of adults don't get enough sleep regularly</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s">
+                <div class="stat-icon">🧠</div>
+                <div class="stat-number">2x</div>
+                <p>higher risk of cognitive decline with poor sleep</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-number">45%</div>
+                <p>increased heart disease risk with chronic sleep loss</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.4s">
+                <div class="stat-icon">⚖️</div>
+                <div class="stat-number">55%</div>
+                <p>more likely to become obese with insufficient sleep</p>
+            </div>
+        </section>
+        
+        <section class="sleep-cycle-section">
+            <h2 class="cycle-title">Understanding Sleep Cycles</h2>
+            <div class="cycle-visual">
+                <div class="cycle-stage stage-1">
+                    <div class="stage-icon">😴</div>
+                    <h3>Stage 1</h3>
+                    <p>Light Sleep</p>
+                    <p>5-10 min</p>
+                </div>
+                <div class="cycle-stage stage-2">
+                    <div class="stage-icon">😌</div>
+                    <h3>Stage 2</h3>
+                    <p>True Sleep</p>
+                    <p>20 min</p>
+                </div>
+                <div class="cycle-stage stage-3">
+                    <div class="stage-icon">💤</div>
+                    <h3>Stage 3</h3>
+                    <p>Deep Sleep</p>
+                    <p>30 min</p>
+                </div>
+                <div class="cycle-stage stage-4">
+                    <div class="stage-icon">🔄</div>
+                    <h3>Stage 4</h3>
+                    <p>Deeper Sleep</p>
+                    <p>30 min</p>
+                </div>
+                <div class="cycle-stage stage-rem">
+                    <div class="stage-icon">🌙</div>
+                    <h3>REM</h3>
+                    <p>Dream Sleep</p>
+                    <p>10-60 min</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic;">A complete sleep cycle takes about 90-120 minutes and repeats 4-6 times per night</p>
+        </section>
+        
+        <section class="benefits-grid" id="benefitsContainer">
+            <!-- Benefits will be inserted by JavaScript -->
+        </section>
+        
+        <section class="sleep-tips">
+            <h2 class="tips-title">Proven Tips for Better Sleep</h2>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <div class="tip-icon">⏰</div>
+                    <div>
+                        <h3>Consistent Schedule</h3>
+                        <p>Go to bed and wake up at the same time every day, even on weekends</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🌙</div>
+                    <div>
+                        <h3>Dark Environment</h3>
+                        <p>Use blackout curtains and eliminate blue light from electronics</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🌡️</div>
+                    <div>
+                        <h3>Cool Temperature</h3>
+                        <p>Keep bedroom between 60-67°F (15-19°C) for optimal sleep</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">☕</div>
+                    <div>
+                        <h3>Limit Stimulants</h3>
+                        <p>Avoid caffeine, nicotine, and heavy meals close to bedtime</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🧘</div>
+                    <div>
+                        <h3>Relaxation Routine</h3>
+                        <p>Develop a pre-sleep ritual like reading, meditation, or light stretching</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🛏️</div>
+                    <div>
+                        <h3>Comfortable Bedding</h3>
+                        <p>Invest in a quality mattress and pillows that support your sleep position</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="sleep-calculator">
+            <h2 class="calculator-title">Sleep Calculator</h2>
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="wakeTime">When do you need to wake up?</label>
+                    <select id="wakeTime">
+                        <option value="5">5:00 AM</option>
+                        <option value="6">6:00 AM</option>
+                        <option value="7" selected>7:00 AM</option>
+                        <option value="8">8:00 AM</option>
+                        <option value="9">9:00 AM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sleepCycles">How many sleep cycles do you want?</label>
+                    <select id="sleepCycles">
+                        <option value="4">4 cycles (6 hours)</option>
+                        <option value="5" selected>5 cycles (7.5 hours)</option>
+                        <option value="6">6 cycles (9 hours)</option>
+                    </select>
+                </div>
+                <button class="calculator-button" id="calculateSleep">Calculate Bedtime</button>
+                <div class="result" id="sleepResult">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Sleep</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How much sleep do I really need?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most adults need 7-9 hours of quality sleep per night. Teenagers need 8-10 hours, while younger children and infants need significantly more. However, individual needs vary based on genetics, lifestyle, and overall health. The best indicator is how you feel during the day - if you're consistently tired, you likely need more sleep.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I catch up on lost sleep?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While you can partially recover from sleep debt, it's not a perfect solution. Sleeping in on weekends can help, but it doesn't fully reverse the effects of chronic sleep deprivation. The most effective approach is consistent, adequate sleep every night rather than trying to "catch up" after several days of poor sleep.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why do I wake up tired even after 8 hours of sleep?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This could indicate poor sleep quality rather than insufficient quantity. Factors like sleep apnea, restless leg syndrome, an uncomfortable sleep environment, or inconsistent sleep schedules can prevent you from getting restorative deep sleep and REM sleep. If this persists, consider consulting a sleep specialist.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is it bad to use my phone before bed?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, using electronic devices before bed can significantly impact sleep quality. The blue light emitted by screens suppresses melatonin production, making it harder to fall asleep. Additionally, engaging content can stimulate your brain when it should be winding down. Experts recommend avoiding screens for at least 1 hour before bedtime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Journey to Better Sleep Tonight</h2>
+            <p>Quality sleep is within your reach. Download our complete sleep improvement toolkit with guided meditations, sleep trackers, and personalized bedtime routines.</p>
+            <a href="resources.html" class="cta-button">Back to resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Sleep Health Guide Abicare  | This information is for educational purposes only. Consult a healthcare professional for sleep disorders.</p>
+        <div class="footer-links">
+           >
+        </div>
+    </footer>
+
+    <script>
+        // Sleep benefits data
+        const sleepBenefits = [
+            {
+                title: "Memory & Learning",
+                icon: "🧠",
+                description: "Sleep consolidates memories and enhances learning. During deep sleep, your brain processes and stores information from the day."
+            },
+            {
+                title: "Immune Function",
+                icon: "🛡️",
+                description: "Quality sleep strengthens your immune system. Just one night of poor sleep can reduce immune cell activity by up to 70%."
+            },
+            {
+                title: "Emotional Regulation",
+                icon: "😊",
+                description: "Sleep helps process emotions and maintain mental health. Sleep deprivation increases negative emotional responses by 60%."
+            },
+            {
+                title: "Physical Recovery",
+                icon: "💪",
+                description: "During sleep, your body repairs tissues, builds bone and muscle, and strengthens the immune system."
+            },
+            {
+                title: "Metabolic Health",
+                icon: "⚖️",
+                description: "Sleep regulates hormones that control appetite. Poor sleep increases hunger hormones and decreases fullness signals."
+            },
+            {
+                title: "Cardiovascular Health",
+                icon: "❤️",
+                description: "Consistent quality sleep helps maintain healthy blood pressure and reduces inflammation, protecting heart health."
+            },
+            {
+                title: "Cognitive Performance",
+                icon: "🎯",
+                description: "Sleep enhances problem-solving skills, attention, and creativity. Well-rested people perform better on complex tasks."
+            },
+            {
+                title: "Hormone Balance",
+                icon: "⚖️",
+                description: "Sleep regulates critical hormones including growth hormone, cortisol, and those that control appetite and stress response."
+            }
+        ];
+
+        // Generate sleep benefits
+        function generateSleepBenefits() {
+            const container = document.getElementById('benefitsContainer');
+            
+            sleepBenefits.forEach((benefit, index) => {
+                const card = document.createElement('div');
+                card.className = 'benefit-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="benefit-icon">${benefit.icon}</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">${benefit.title}</h3>
+                        <p>${benefit.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create sleep animation in header
+        function createSleepAnimation() {
+            const container = document.getElementById('sleepAnimation');
+            const icons = ['🌙', '⭐', '💤', '😴', '🌌', '✨', '🛌', '🌃'];
+            const iconsCount = 15;
+            
+            // Add moon
+            const moon = document.createElement('div');
+            moon.className = 'moon';
+            moon.style.left = '80%';
+            moon.style.top = '20%';
+            container.appendChild(moon);
+            
+            // Add stars
+            for (let i = 0; i < 30; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = `${Math.random() * 95}%`;
+                star.style.top = `${Math.random() * 95}%`;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                
+                container.appendChild(star);
+            }
+            
+            // Add floating icons
+            for (let i = 0; i < iconsCount; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                
+                // Random position
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                icon.style.animationDelay = `${Math.random() * 8}s`;
+                icon.style.animationDuration = `${6 + Math.random() * 4}s`;
+                
+                container.appendChild(icon);
+            }
+        }
+
+        // Sleep calculator functionality
+        function setupSleepCalculator() {
+            const calculateButton = document.getElementById('calculateSleep');
+            const wakeTimeSelect = document.getElementById('wakeTime');
+            const sleepCyclesSelect = document.getElementById('sleepCycles');
+            const resultDiv = document.getElementById('sleepResult');
+            
+            calculateButton.addEventListener('click', () => {
+                const wakeHour = parseInt(wakeTimeSelect.value);
+                const cycles = parseInt(sleepCyclesSelect.value);
+                
+                // Calculate bedtime (each cycle is 90 minutes)
+                const totalSleepMinutes = cycles * 90;
+                const bedtimeMinutes = (wakeHour * 60) - totalSleepMinutes - 15; // Add 15 mins to fall asleep
+                
+                // Convert to hours and minutes
+                let bedtimeHour = Math.floor(bedtimeMinutes / 60);
+                let bedtimeMinute = bedtimeMinutes % 60;
+                
+                // Handle negative hours (previous day)
+                if (bedtimeHour < 0) {
+                    bedtimeHour += 24;
+                }
+                
+                // Format time
+                const period = bedtimeHour >= 12 ? 'PM' : 'AM';
+                const displayHour = bedtimeHour > 12 ? bedtimeHour - 12 : bedtimeHour;
+                const displayMinute = bedtimeMinute < 10 ? `0${bedtimeMinute}` : bedtimeMinute;
+                
+                // Display result
+                resultDiv.innerHTML = `
+                    <p>For ${cycles} sleep cycles (${cycles * 1.5} hours) and waking at ${wakeTimeSelect.options[wakeTimeSelect.selectedIndex].text}:</p>
+                    <p><strong>Try to be in bed by ${displayHour}:${displayMinute} ${period}</strong></p>
+                    <p>This allows time to fall asleep and complete full sleep cycles.</p>
+                `;
+                resultDiv.style.display = 'block';
+            });
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateSleepBenefits();
+            createSleepAnimation();
+            setupSleepCalculator();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

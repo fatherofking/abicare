@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abicare Hospital - Premier healthcare services with compassionate care. Book appointments, meet expert doctors, and access world-class medical facilities.">
+    <title>Abicare Hospital - Because We Care</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data -->
+     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hospital",
+      "name": "Abicare Hospital",
+      "description": "Because We Care",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ibadan",
+        "addressRegion": "Oyo State",
+        "addressCountry": "NG"
+      },
+      "telephone": "+234-XXX-XXX-XXXX",
+      "url": "https://www.abicarehospital.com"
+    }
+    </script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Luxurious+Script&family=Manufacturing+Consent&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rye&display=swap');
+.Motto {
+  font-family: "Leckerli One", cursive;
+  font-weight: 500;
+  font-style: normal;
+ margin-top: 40px;
+color: lightblue;
+
+}
+
+</style>
+</head>
+<body>
+    <!-- Header with Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container"> 
+            <a class="navbar-brand" href="index.html" style="display: block;">
+               <img src="abicare-logop.jpg" alt="" style="width: 50px; border-radius: 30px;">
+               
+                <span class="brand-text">Abicare Hospital</span>
+               
+               
+            </a>
+              <p class="Motto"> you are safe with us</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-sm ms-lg-3" href="book.html">Book Appointment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-4">Your Health, Our Priority</h1>
+                    <p class="lead mb-4">Experience world-class healthcare with compassionate professionals dedicated to your wellbeing. Advanced treatments, personalized care, trusted result, 24/7 Emergency care!!</p>
+                    <div class="hero-cta">
+                        <a href="book.html" class="btn btn-primary btn-lg me-3 mb-2">Book Appointment</a>
+                        <a href="services.html" class="btn btn-outline-primary btn-lg mb-2">Our Services</a>
+                    </div>
+                    <div class="hero-stats mt-5">
+                        <div class="row">
+                            <div class="col-4">
+                                <h3 class="stat-number">10+</h3>
+                                <p class="stat-label">Expert Doctors</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="stat-number">4K+</h3>
+                                <p class="stat-label">Happy Patients</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="stat-number">10+</h3>
+                                <p class="stat-label">Specialties</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="abicare-envp.jpg" alt="Healthcare professionals" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Abicare -->
+    <section class="why-choose py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Why Choose Abicare Hospital</h2>
+                <p class="section-subtitle">Excellence in healthcare, compassion in every interaction</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Expert Specialists</h4>
+                        <p>Our team comprises highly qualified doctors with years of experience in their respective fields, ensuring you receive the best care possible.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Modern Facilities</h4>
+                        <p>State-of-the-art medical equipment and comfortable patient rooms designed to support healing and recovery in a serene environment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>24/7 Emergency Care</h4>
+                        <p>Round-the-clock emergency services with rapid response teams ready to handle any medical situation with urgency and expertise.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Compassionate Care</h4>
+                        <p>We treat every patient like family, providing personalized attention and emotional support throughout your healthcare journey.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Trusted Quality</h4>
+                        <p>Accredited by national healthcare bodies, we maintain the highest standards of medical practice and patient safety protocols.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <h4>Affordable Pricing</h4>
+                        <p>Quality healthcare shouldn't break the bank. We offer transparent pricing and work with multiple insurance providers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section class="featured-services py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Our Medical Services</h2>
+                <p class="section-subtitle">Comprehensive care across multiple specialties</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="">
+                          <img src="abicare-surgery.jpg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Surgical services</h5>
+                        <p>Advanced surgical services and treatments</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="">
+                           <img src="abicare-gadgets.jpg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Physiotherapy</h5>
+                        <p>Expert care in physiotherapy</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="">
+                            <img src="counselling.jpeg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Counseling</h5>
+                        <p> Get expert counselling services</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="">
+                            <img src="obterics.jpeg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Obsterics/Gynecology</h5>
+                        <p>Special obterics  treatment</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                  <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="">
+                             <img src="laboratory-services.jpeg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Laboratory services</h5>
+                        <p>We offer expert laboratory services</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                   <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="">
+                             <img src="radiology.jpeg" alt="" style="height:200px; width: 200px; border-radius: 5px;">
+                        </div>
+                        <h5>Radiology</h5>
+                        <p>Expert Radiology services</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="services.html" class="btn btn-primary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Doctors -->
+    <section class="doctors-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Meet Our Expert Doctors/Nurses</h2>
+                <p class="section-subtitle">Experienced professionals dedicated to your health</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="abicare-ceo.jpeg" alt="Dr. olufemi Lawani ">
+                        </div>
+                        <div class="doctor-info">
+                            <h5>Dr. Olufemi  Lawani</h5>
+                            <p class="specialty">CEO</p>
+                            <p class="credentials">MBBS, MSC,MBA,FMCpath</p>
+                            <a href="book.html" class="btn btn-sm btn-outline-primary">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="Nurse3.jpg" alt="Dr. Jalo.k">
+                        </div>
+                        <div class="doctor-info">
+                            <h5>Nrs.Jalo.k</h5>
+                            <p class="specialty"> Staff Nurse</p>
+                            <a href="book.html" class="btn btn-sm btn-outline-primary">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="nurse2.jpg" alt="Nrs.Ajayi Precoius">
+                        </div>
+                        <div class="doctor-info">
+                            <h5>Nrs.Ajayi Precious</h5>
+                            <p class="specialty"> Staff Nurse</p>
+                            <p class="credentials"></p>
+                            <a href="book.html" class="btn btn-sm btn-outline-primary">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="nurse6.jpg" alt="Nrs.Oladipupo B.T">
+                        </div>
+                        <div class="doctor-info">
+                            <h5>Nrs.Oladipupo B.T </h5>
+                            <p class="specialty">Staff Nurse</p>
+                            <p class="credentials"></p>
+                            <a href="book.html" class="btn btn-sm btn-outline-primary">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="doctors.html" class="btn btn-primary">View All Doctors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Testimonials -->
+    <section class="testimonials-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">What Our Patients Say</h2>
+                <p class="section-subtitle">Real experiences from real people</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"AbiCare hospital is the best to anyone looking for quality healthcare delivered with empathy and integrity.
+I highly recommend Abicare Hospital to individuals and families seeking reliable, professional, and patient-centered care. It is a model of what modern healthcare should be."</p>
+                        <div class="patient-info">
+                            <strong>Mr. Micracle lawrence</strong>
+                            <span>Lagos, Nigeria</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"I’m deeply grateful for the exceptional care I received at Abicare Hospital. The staff were compassionate, professional, and went above and beyond to ensure my comfort and recovery. From the doctors to the nurses and support staff, everyone was kind, attentive, and dedicated. Their expertise and care made a significant difference in my treatment and overall experience. I highly recommend Abicare Hospital for its outstanding medical care and warm hospitality. Thank you to the entire team for helping me get back on my feet
+Kudos to you !!!"</p>
+                        <div class="patient-info">
+                            <strong>Mrs.Rafat olosun</strong>
+                            <span>Ibadan, Nigeria</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Abicare Hospital is one of the best hospitals I would highly recommend to anyone in need of medical care. The healthcare team went above and beyond to ensure my needs were met while I was on admission there.
+The facilities and staff's expertise, kindness, and dedication to delivering outstanding patient care makes it truly a special place. Thanks to the entire team for providing such exceptional care.
+When it comes to delivering top-notch health care, Abicare Hospital is one of a kind"</p>
+                        <div class="patient-info">
+                            <strong>Mrs. Oluwadolani Mitchell</strong>
+                            <span>Abuja, Nigeria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Resources Preview -->
+    <section class="resources-preview py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Health Resources & Tips</h2>
+                <p class="section-subtitle">Stay informed about your health</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600" alt="Heart health">
+                            <span class="resource-tag">Cardiology</span>
+                        </div>
+                        <div class="resource-content">
+                            <h5>10 Tips for a Healthy Heart</h5>
+                            <p>Discover simple lifestyle changes that can significantly improve your cardiovascular health and reduce heart disease risk.</p>
+                            <a href="resources.html" class="resource-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600" alt="Nutrition">
+                            <span class="resource-tag">Nutrition</span>
+                        </div>
+                        <div class="resource-content">
+                            <h5>Balanced Diet Guide</h5>
+                            <p>Learn how to create nutritious meals that fuel your body and support optimal health for you and your family.</p>
+                            <a href="resources.html" class="resource-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600" alt="Exercise">
+                            <span class="resource-tag">Wellness</span>
+                        </div>
+                        <div class="resource-content">
+                            <h5>Exercise for Every Age</h5>
+                            <p>Find the perfect workout routine tailored to your age group and fitness level for maximum health benefits.</p>
+                            <a href="resources.html" class="resource-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="resources.html" class="btn btn-primary">View All Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Banner -->
+    <section class="cta-banner py-5">
+        <div class="container">
+            <div class="cta-content text-center" data-aos="zoom-in">
+                <h2 class="mb-4">Ready to Take Control of Your Health?</h2>
+                <p class="lead mb-4">Book an appointment today and experience healthcare that truly cares about you.</p>
+                <div class="cta-buttons">
+                    <a href="book.html" class="btn btn-light btn-lg me-3 mb-2">Book Appointment</a>
+                    <a href="tel:+2348145233454" class="btn btn-outline-light btn-lg mb-2">
+                        <i class="fas fa-phone me-2"></i> Call Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">
+                        <i class="fas fa-heartbeat me-2"></i>Abicare Hospital
+                    </h5>
+                    <p class="tagline-footer mb-3">You are safe with us</p>
+                    <p>Providing exceptional healthcare services with compassion, expertise, and state-of-the-art facilities.</p>
+                    <div class="social-links mt-3">
+                        <a href="https://www.facebook.com/profile.php?id=61560405597436&ref=_ig_profile_ac" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/abicarehospital_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="mb-3">Services</h6>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Medical services</a></li>
+                        <li><a href="services.html">General Surgery</a></li>
+                        <li><a href="services.html">Obsterics/gynecology</a></li>
+                        <li><a href="services.html">Counselling</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="footer-contact">
+                          <li><i class="fas fa-map-marker-alt"></i> along Awolowo road, Ilorin, Kwara State, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234-814-523-3454</li>
+                        <li><i class="fas fa-envelope"></i> abicare.msl@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Emergency Services</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Abicare Hospital. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+    
+    
+
+</body>
+</html>
