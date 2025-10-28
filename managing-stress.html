@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to managing stress and anxiety. Learn proven techniques, coping strategies, and mindfulness practices to reduce anxiety and improve mental wellbeing.">
+    <meta name="keywords" content="stress management, anxiety relief, coping strategies, mindfulness, mental health, relaxation techniques, panic attacks, worry reduction">
+    <title>Managing Stress & Anxiety | Abicare hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6A89CC;
+            --primary-light: #82AAE3;
+            --primary-dark: #4A69BB;
+            --secondary: #B8E0D2;
+            --accent: #E8B4BC;
+            --light: #F7F9FC;
+            --dark: #1A3C6E;
+            --text: #2D3748;
+            --text-light: #718096;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calm-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+        }
+        
+        .breathing-circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: breathe 8s infinite ease-in-out;
+        }
+        
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .technique-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.5s ease forwards;
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .technique-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .technique-content {
+            padding: 1.5rem;
+        }
+        
+        .technique-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .interactive-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .interactive-title {
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .breathing-exercise {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .breathing-circle-interactive {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            animation: breatheInteractive 8s infinite ease-in-out;
+        }
+        
+        @keyframes breatheInteractive {
+            0%, 100% {
+                transform: scale(0.8);
+                background-color: var(--secondary);
+            }
+            50% {
+                transform: scale(1.2);
+                background-color: var(--primary-light);
+            }
+        }
+        
+        .breathing-instructions {
+            margin-bottom: 1.5rem;
+        }
+        
+        .breathing-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .breathing-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .symptoms-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .symptoms-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .symptom-item {
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        
+        .symptom-item:hover {
+            background-color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .symptom-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .emergency-notice {
+            background-color: #FFEAA7;
+            border-left: 4px solid #FDCB6E;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .techniques-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="calm-animation" id="calmAnimation"></div>
+        <div class="header-content">
+            <h1>Managing Stress & Anxiety</h1>
+            <p class="subtitle">Evidence-Based Strategies for Finding Calm in Challenging Times</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Take Control of Your Mental Wellbeing</h2>
+            <p>Stress and anxiety are natural responses to life's challenges, but when they become overwhelming, they can impact your health, relationships, and quality of life. This comprehensive guide provides practical, evidence-based techniques to help you manage stress, reduce anxiety, and cultivate lasting mental resilience.</p>
+        </section>
+        
+        <div class="emergency-notice">
+            <p><strong>If you're in crisis:</strong> Contact a mental health professional, call a crisis helpline, or go to your nearest emergency room. You don't have to face difficult feelings alone.</p>
+        </div>
+        
+        <section class="stats-section">
+            <div class="stat-card" style="animation-delay: 0.1s">
+                <div class="stat-icon">😥</div>
+                <div class="stat-number">70%</div>
+                <p>of adults report feeling stress or anxiety daily</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s">
+                <div class="stat-icon">🧘</div>
+                <div class="stat-number">15-20</div>
+                <p>minutes of daily mindfulness can reduce anxiety by 40%</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s">
+                <div class="stat-icon">💪</div>
+                <div class="stat-number">85%</div>
+                <p>of people see improvement with consistent coping strategies</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.4s">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number">3x</div>
+                <p>social support increases resilience to stress</p>
+            </div>
+        </section>
+        
+        <section class="techniques-grid" id="techniquesContainer">
+            <!-- Techniques will be inserted by JavaScript -->
+        </section>
+        
+        <section class="interactive-section">
+            <h2 class="interactive-title">Try a Quick Breathing Exercise</h2>
+            <div class="breathing-exercise">
+                <div class="breathing-circle-interactive">
+                    Breathe with me
+                </div>
+                <div class="breathing-instructions">
+                    <p>Follow the circle: Breathe in as it expands, breathe out as it contracts.</p>
+                    <p>This simple technique can calm your nervous system in minutes.</p>
+                </div>
+                <button class="breathing-button" id="startBreathing">Start 2-Minute Exercise</button>
+            </div>
+        </section>
+        
+        <section class="symptoms-section">
+            <h2 class="symptoms-title">Recognizing Stress & Anxiety Symptoms</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-item">
+                    <div class="symptom-icon">💓</div>
+                    <div>
+                        <h3>Physical</h3>
+                        <p>Racing heart, muscle tension, headaches, fatigue</p>
+                    </div>
+                </div>
+                <div class="symptom-item">
+                    <div class="symptom-icon">🤯</div>
+                    <div>
+                        <h3>Emotional</h3>
+                        <p>Irritability, overwhelm, dread, mood swings</p>
+                    </div>
+                </div>
+                <div class="symptom-item">
+                    <div class="symptom-icon">🧠</div>
+                    <div>
+                        <h3>Cognitive</h3>
+                        <p>Racing thoughts, difficulty concentrating, memory issues</p>
+                    </div>
+                </div>
+                <div class="symptom-item">
+                    <div class="symptom-icon">🚶‍♂️</div>
+                    <div>
+                        <h3>Behavioral</h3>
+                        <p>Avoidance, changes in sleep or appetite, restlessness</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions About Stress & Anxiety</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the difference between stress and anxiety?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Stress is typically a response to an external cause (like a deadline or argument) and subsides once the situation is resolved. Anxiety is persistent worry that doesn't go away even when the stressor is removed. While stress can be motivating in small doses, anxiety tends to be debilitating.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        When should I seek professional help for anxiety?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Consider seeking help when anxiety: interferes with daily functioning, causes significant distress, leads to avoidance of important activities, results in physical symptoms without medical cause, or when self-help strategies aren't providing relief. Early intervention often leads to better outcomes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can anxiety be cured completely?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While some people may experience complete remission, for many, anxiety is managed rather than cured. The goal is to develop tools and coping strategies that reduce anxiety's impact on your life. With effective treatment, most people can significantly reduce symptoms and improve quality of life.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are panic attacks and how can I manage them?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Panic attacks are sudden episodes of intense fear with physical symptoms like racing heart, sweating, and shortness of breath. During an attack: focus on your breathing, use grounding techniques (name 5 things you can see, 4 you can touch, etc.), remind yourself it will pass, and don't fight the sensations. Regular practice of relaxation techniques can reduce their frequency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Journey to Calm Today</h2>
+            <p>Managing stress and anxiety is a skill that improves with practice. Download our complete toolkit with guided meditations, anxiety tracking worksheets, and personalized coping strategies.</p>
+            <a href="resources.html" class="cta-button">Back to resources</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Stress & Anxiety Management Guide | This information is for educational purposes only and not a substitute for professional medical advice.</p>
+        
+    </footer>
+
+    <script>
+        // Stress management techniques data
+        const techniques = [
+            {
+                title: "Deep Breathing",
+                icon: "🌬️",
+                description: "Practice diaphragmatic breathing to activate the parasympathetic nervous system. Try the 4-7-8 technique: inhale for 4 seconds, hold for 7, exhale for 8."
+            },
+            {
+                title: "Progressive Muscle Relaxation",
+                icon: "💆‍♂️",
+                description: "Systematically tense and release different muscle groups. This helps identify areas of tension and teaches your body the difference between tension and relaxation."
+            },
+            {
+                title: "Mindfulness Meditation",
+                icon: "🧘",
+                description: "Practice observing thoughts and feelings without judgment. Even 10 minutes daily can reduce anxiety and improve emotional regulation."
+            },
+            {
+                title: "Physical Activity",
+                icon: "🏃‍♀️",
+                description: "Exercise releases endorphins and reduces stress hormones. Aim for 30 minutes most days - even a brisk walk can make a significant difference."
+            },
+            {
+                title: "Cognitive Restructuring",
+                icon: "🔄",
+                description: "Identify and challenge anxious thoughts. Ask yourself: 'Is this thought helpful? Is it based on facts? What's a more balanced perspective?'"
+            },
+            {
+                title: "Establish Routine",
+                icon: "📅",
+                description: "Create structure in your day to reduce uncertainty. Include time for work, relaxation, social connection, and self-care activities."
+            },
+            {
+                title: "Limit Stimulants",
+                icon: "☕",
+                description: "Reduce caffeine, sugar, and alcohol, which can exacerbate anxiety. Stay hydrated and maintain stable blood sugar with regular, balanced meals."
+            },
+            {
+                title: "Social Support",
+                icon: "👥",
+                description: "Connect with understanding friends or family. Social connection releases oxytocin, which naturally reduces anxiety and promotes feelings of safety."
+            }
+        ];
+
+        // Generate techniques
+        function generateTechniques() {
+            const container = document.getElementById('techniquesContainer');
+            
+            techniques.forEach((technique, index) => {
+                const card = document.createElement('div');
+                card.className = 'technique-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="technique-icon">${technique.icon}</div>
+                    <div class="technique-content">
+                        <h3 class="technique-title">${technique.title}</h3>
+                        <p>${technique.description}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Create calming animation in header
+        function createCalmAnimation() {
+            const container = document.getElementById('calmAnimation');
+            const elements = ['🌿', '🌸', '💫', '🌊', '☁️', '🕊️', '🌙', '✨'];
+            const elementsCount = 12;
+            
+            for (let i = 0; i < elementsCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                
+                // Random position
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                element.style.animationDelay = `${Math.random() * 8}s`;
+                element.style.animationDuration = `${6 + Math.random() * 4}s`;
+                
+                container.appendChild(element);
+            }
+            
+            // Add breathing circles
+            for (let i = 0; i < 3; i++) {
+                const circle = document.createElement('div');
+                circle.className = 'breathing-circle';
+                
+                // Random position and size
+                const size = 50 + Math.random() * 100;
+                circle.style.width = `${size}px`;
+                circle.style.height = `${size}px`;
+                circle.style.left = `${Math.random() * 90}%`;
+                circle.style.top = `${Math.random() * 90}%`;
+                
+                // Random animation delay
+                circle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(circle);
+            }
+        }
+
+        // Breathing exercise functionality
+        function setupBreathingExercise() {
+            const button = document.getElementById('startBreathing');
+            const circle = document.querySelector('.breathing-circle-interactive');
+            const instructions = document.querySelector('.breathing-instructions p');
+            
+            let isBreathing = false;
+            let breathCount = 0;
+            const maxBreaths = 6; // Approximately 2 minutes
+            
+            button.addEventListener('click', () => {
+                if (!isBreathing) {
+                    isBreathing = true;
+                    breathCount = 0;
+                    button.textContent = 'Stop Exercise';
+                    instructions.textContent = 'Breathe in...';
+                    
+                    // Start the breathing cycle
+                    const breathInterval = setInterval(() => {
+                        if (breathCount >= maxBreaths || !isBreathing) {
+                            clearInterval(breathInterval);
+                            isBreathing = false;
+                            button.textContent = 'Start 2-Minute Exercise';
+                            instructions.textContent = 'Exercise complete. Notice how you feel.';
+                            return;
+                        }
+                        
+                        // Alternate between inhale and exhale instructions
+                        if (breathCount % 2 === 0) {
+                            instructions.textContent = 'Breathe in...';
+                        } else {
+                            instructions.textContent = 'Breathe out...';
+                            breathCount++;
+                        }
+                    }, 4000); // 4 seconds for each half of breath cycle
+                    
+                    // Allow stopping the exercise
+                    button.onclick = () => {
+                        isBreathing = false;
+                        button.textContent = 'Start 2-Minute Exercise';
+                        instructions.textContent = 'Follow the circle: Breathe in as it expands, breathe out as it contracts.';
+                    };
+                }
+            });
+        }
+
+        // FAQ toggle functionality
+        function setupFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTechniques();
+            createCalmAnimation();
+            setupBreathingExercise();
+            setupFAQ();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abicare Hospital | booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #e6f7ff;
+            --accent-blue: #4da6ff;
+            --dark-blue: #0077cc;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-dark: #333333;
+            --success-green: #4CAF50;
+            --error-red: #f44336;
+        }
+
+        body {
+            background-color: var(--primary-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 119, 204, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--dark-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--dark-blue);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--white) 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(77, 166, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 1.1s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 119, 204, 0.4);
+        }
+
+        /* Booking Form */
+        .booking-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .booking-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 119, 204, 0.1);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: var(--light-gray);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.2);
+        }
+
+        .submit-btn {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 30px auto 0;
+            box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 119, 204, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--primary-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 119, 204, 0.1);
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card:nth-child(1) {
+            animation: fadeInUp 0.8s forwards 0.3s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation: fadeInUp 0.8s forwards 0.5s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation: fadeInUp 0.8s forwards 0.7s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #e6f7ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Messages */
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading-message {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .booking-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="abicare-logop.jpg" alt="" style="width: 50px; border-radius: 30px;">
+                    <h1>Abicare Hospital</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Premium Healthcare Experience</h2>
+                <p>Book your appointment with our world-class medical specialists. Your health is our priority.</p>
+                <a href="#booking" class="cta-button">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Appointment</h2>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="department">Department</label>
+                        <select id="department" class="form-control" required>
+                            <option value="">Select Department</option>
+                            <option value="Medical services">Medical services</option>
+                            <option value="Radiology">Radiology</option>
+                            <option value="Laboratory Services">Laboratory Services</option>
+                            <option value="Obsterics/Gynecology">Obsterics/Gynecology</option>
+                            <option value="Counselling">Counselling</option>
+                            <option value="Physiotherapy">Physiotherapy</option>
+                            <option value="Surgical services">Surgical services</option>
+                            <option value="Outpatient clinic">Outpatient clinic</option>
+                             <option value="Dentistry">Dentistry</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="doctor">Preferred Doctor</label>
+                        <select id="doctor" class="form-control" required>
+                            <option value="">Select Doctor</option>
+                            <option value="Dr. Olufemi  Lawani ">Dr. Olufemi Lawani</option>
+                           
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="time">Preferred Time</label>
+                        <select id="time" class="form-control" required>
+                            <option value="">Select Time</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Message (Optional)</label>
+                    <textarea id="message" class="form-control" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Book Appointment</button>
+                
+                <div class="message success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Your appointment has been successfully booked! We will contact you shortly.
+                </div>
+                
+                <div class="message error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-circle"></i> There was an error submitting your appointment. Please try again.
+                </div>
+                
+                <div class="message loading-message" id="loadingMessage">
+                    <i class="fas fa-spinner fa-spin"></i> Submitting your appointment request...
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Abicare</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Expert Specialists</h3>
+                    <p>Our team consists of highly qualified doctors with years of experience in their respective fields.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Quick Appointments</h3>
+                    <p>We value your time. Get appointments with minimal waiting periods and flexible scheduling.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Premium Care</h3>
+                    <p>Experience personalized healthcare with state-of-the-art facilities and compassionate staff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Abicare Hospital</h3>
+                    <p>Providing premium healthcare services with compassion and excellence since 2005.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="book.html">Appointments</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Along Alowolo road,  ilorin City, kwara state</li>
+                        <li><i class="fas fa-phone"></i>+234 814-523-3454</li>
+                        <li><i class="fas fa-envelope"></i> abicare.msl@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AbiCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS (for backup notification system)
+        (function(){
+            emailjs.init("L79zBPME2n_7pV7gy"); // Replace with your EmailJS public key
+        })();
+
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        
+        // Form submission handling
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Show loading message
+            document.getElementById('loadingMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            // Disable submit button
+            document.getElementById('submitBtn').disabled = true;
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                department: document.getElementById('department').value,
+                doctor: document.getElementById('doctor').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                message: document.getElementById('message').value.trim(),
+                timestamp: new Date().toLocaleString(),
+                status: 'Pending'
+            };
+            
+            try {
+                // Try Google Sheets integration first
+                const sheetsSuccess = await submitToGoogleSheets(formData);
+                
+                if (sheetsSuccess) {
+                    // Send confirmation email
+                    await sendConfirmationEmail(formData);
+                    
+                    // Show success message
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Reset form
+                    document.getElementById('bookingForm').reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error('Google Sheets submission failed');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                
+                // Try backup storage method
+                try {
+                    await storeInLocalStorage(formData);
+                    await sendEmergencyEmail(formData);
+                    
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('bookingForm').reset();
+                } catch (backupError) {
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            } finally {
+                // Re-enable submit button
+                document.getElementById('submitBtn').disabled = false;
+            }
+        });
+
+        // Form validation
+        function validateForm() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const department = document.getElementById('department').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            // Basic validation
+            if (!firstName || !lastName || !email || !phone || !department || !doctor || !date || !time) {
+                alert('Please fill in all required fields');
+                return false;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+            
+            // Phone validation (basic)
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+                alert('Please enter a valid phone number');
+                return false;
+            }
+            
+            // Date validation
+            const selectedDate = new Date(date);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                alert('Please select a future date');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Google Sheets Integration
+        async function submitToGoogleSheets(data) {
+            // Replace with your Google Apps Script Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw7N9PY9PN9_NvrrIOReGmlxvmT7C7M2_SmzISa6rYqZufonMW6BzPQGvQqciy4_M3dQw/exec';
+            
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // Since we're using no-cors, we can't read the response
+                // But the data will still be sent to Google Sheets
+                return true;
+            } catch (error) {
+                console.error('Google Sheets error:', error);
+                return false;
+            }
+        }
+
+        // Backup storage in localStorage
+        async function storeInLocalStorage(data) {
+            return new Promise((resolve, reject) => {
+                try {
+                    // Get existing bookings or initialize empty array
+                    const existingBookings = JSON.parse(localStorage.getItem('hospitalBookings') || '[]');
+                    
+                    // Add new booking
+                    existingBookings.push({
+                        ...data,
+                        id: Date.now().toString(),
+                        storedAt: new Date().toISOString()
+                    });
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('hospitalBookings', JSON.stringify(existingBookings));
+                    resolve(true);
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        }
+
+        // Send confirmation email using EmailJS
+        async function sendConfirmationEmail(data) {
+            try {
+                const templateParams = {
+                    to_name: `${data.firstName} ${data.lastName}`,
+                    to_email: data.email,
+                    appointment_date: data.date,
+                    appointment_time: data.time,
+                    doctor_name: data.doctor,
+                    department: data.department,
+                    hospital_name: 'EliteCare Hospital',
+                    hospital_phone: '+1 (555) 123-4567'
+                };
+
+                await emailjs.send(
+                    'YOUR_EMAILJS_SERVICE_ID', // Replace with your EmailJS service ID
+                    'YOUR_EMAILJS_TEMPLATE_ID', // Replace with your EmailJS template ID
+                    templateParams
+                );
+                
+                return true;
+            } catch (error) {
+                console.error('Email sending failed:', error);
+                return false;
+            }
+        }
+
+        // Send emergency email if primary methods fail
+        async function sendEmergencyEmail(data) {
+            try {
+                const emergencyParams = {
+                    to_name: 'Hospital Admin',
+                    to_email: 'admin@elitecarehospital.com',
+                    subject: 'URGENT: Booking System Backup Required',
+                    message: `A booking was made but couldn't be stored in primary system. Details: ${JSON.stringify(data)}`
+                };
+
+                await emailjs.send(
+                    'YOUR_EMAILJS_SERVICE_ID',
+                    'YOUR_EMERGENCY_TEMPLATE_ID',
+                    emergencyParams
+                );
+                
+                return true;
+            } catch (error) {
+                console.error('Emergency email failed:', error);
+                return false;
+            }
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Real-time form validation
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '' && this.hasAttribute('required')) {
+                    this.style.borderColor = 'var(--error-red)';
+                } else {
+                    this.style.borderColor = '#ddd';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
